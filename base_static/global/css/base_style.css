@@ -1,0 +1,586 @@
+/* Importações */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;700&family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+/* ========================================================================= */
+
+/* Variáveis de padronização */
+
+:root {
+
+    /* Palheta de cores do site */
+
+    --cor-background-principal: #1E1E1E;
+    --cor-background-luz: #303030;
+    --cor-background-sombra: #0c0c0c;
+    --cor-texto-principal: #F2EEEB;
+    --cor-destaque: #D92525;
+    --cor-laranja: #F26B1D;
+    --cor-amarelo: hsl(61, 88%, 67%);
+    --cor-vermelho-alaranjado: #F23005;
+    --cor-verde: #27AE60;
+    --cor-cinza-claro: #B8CCD9;
+    --cor-preto: #0D0D0D;
+
+    /* ------------------------------------------------------------- */
+
+    /* Tamanhos de fonte padrão para o site */
+
+    --tamanho-fonte-corpo: 16px;
+    --tamanho-fonte-titulo: 24px;
+    --tamanho-fonte-navegacao: 14px;
+    --tamanho-fonte-citacao: 22px;
+    --tamanho-fonte-rodape: 14px;
+    
+    /* Tamanhos de fonte pequenos */
+
+    --tamanho-fonte-pequeno-corpo: 14px;
+    --tamanho-fonte-pequeno-titulo: 20px;
+    --tamanho-fonte-pequeno-navegacao: 12px;
+    --tamanho-fonte-pequeno-citacao: 18px;
+    --tamanho-fonte-pequeno-rodape: 12px;
+    
+    /* Tamanhos de fonte grandes */
+
+    --tamanho-fonte-grande-corpo: 18px;
+    --tamanho-fonte-grande-titulo: 30px;
+    --tamanho-fonte-grande-navegacao: 16px;
+    --tamanho-fonte-grande-citacao: 26px;
+    --tamanho-fonte-grande-rodape: 16px;
+
+    /* ------------------------------------------------------------- */
+
+    /* Estilo da fonte */
+
+    --font-family-titulos: 'Montserrat', sans-serif;
+    --font-family-paragrafos: 'Nunito', sans-serif;
+    --font-family-links: 'Poppins', sans-serif;
+    --font-family--botoes: 'Roboto', sans-serif;
+
+    /* ------------------------------------------------------------- */
+
+    /* Espaçamento */
+
+    --espaco-micro: 0.8rem;
+    --espaco-muito-pequeno: 1.5rem;
+    --espaco-pequeno: 2rem;
+    --espaco-medio: 2.5rem;
+    --espaco-grande: 3rem;
+    --espaco-muito-grande: 4rem;
+    --espaco-gigante: 5rem;
+
+    /* Tamanho de conteudo */
+
+    --conteudo-principal: 120rem;
+    --metade-conteudo-principal: 60rem;
+
+    /* border */
+
+    --border-radius: 30px;
+}
+
+/* ========================================================================= */
+
+/* Configurações de TAGs para padronização */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: var(--cor-background-principal);
+    color: var(--cor-texto-principal);
+    font-size: 62.5%;
+}
+
+a {
+    color: inherit;
+    text-decoration: None;
+}
+
+li {
+    list-style: none;
+}
+
+/* ========================================================================= */
+
+/* Classes de padronização de texto de tamanho padrão */
+
+.fonte-corpo {
+    font-size: var(--tamanho-fonte-corpo);
+}
+
+.fonte-titulo {
+    font-size: var(--tamanho-fonte-titulo);
+}
+
+.fonte-navegacao {
+    font-size: var(--tamanho-fonte-navegacao);
+}
+
+.fonte-citacao {
+    font-size: var(--tamanho-fonte-citacao);
+}
+
+.fonte-rodape {
+    font-size: var(--tamanho-fonte-rodape);
+}
+
+/* ------------------------------------------------------------- */
+
+/* Classes de texto de tamanho pequenas */
+
+.fonte-pequeno {
+    font-size: var(--tamanho-fonte-pequeno-corpo);
+}
+
+.fonte-pequeno-titulo {
+    font-size: var(--tamanho-fonte-pequeno-titulo);
+}
+
+.fonte-pequeno-navegacao {
+    font-size: var(--tamanho-fonte-pequeno-navegacao);
+}
+
+.fonte-pequeno-citacao {
+    font-size: var(--tamanho-fonte-pequeno-citacao);
+}
+
+.fonte-pequeno-rodape {
+    font-size: var(--tamanho-fonte-pequeno-rodape);
+}
+
+/* ------------------------------------------------------------- */
+
+/* Classes de texto de tamanho grandes */
+
+.fonte-grande {
+    font-size: var(--tamanho-fonte-grande-corpo);
+}
+
+.fonte-grande-titulo {
+    font-size: var(--tamanho-fonte-grande-titulo);
+}
+
+.fonte-grande-navegacao {
+    font-size: var(--tamanho-fonte-grande-navegacao);
+}
+
+.fonte-grande-citacao {
+    font-size: var(--tamanho-fonte-grande-citacao);
+}
+
+.fonte-grande-rodape {
+    font-size: var(--tamanho-fonte-grande-rodape);
+}
+
+/* ------------------------------------------------------------- */
+
+/* Classes de estilo da fonte */
+
+.fonte-estilo-titulo {
+    font-family: var(--font-family-titulos);
+}
+
+.fonte-estilo-paragrafo {
+    font-family: var(--font-family-paragrafos);
+}
+
+.fonte-estilo-botoes {
+    font-family: var(--font-family--botoes);
+}
+
+.fonte-estilo-links {
+    font-family: var(--font-family-links);
+}
+
+.negrito {
+    font-weight: bold;
+}
+
+/* ------------------------------------------------------------- */
+
+/* Classes de alinhamento de texto */
+
+.text-centro {
+    text-align: center;
+}
+
+.texto-esquerda {
+    text-align: left;
+}
+
+.texto-direita {
+    text-align: right;
+}
+
+/* ========================================================================= */
+
+/* Classes de padronização do espaço do conteúdo */
+
+.conteudo-principal {
+    max-width: var(--conteudo-principal);
+    margin: 0 auto;
+    padding: var(--espaco-muito-pequeno);
+}
+
+.pagina-inteira {
+    min-height: 100vh;
+}
+
+.conteudo-centralizado-coluna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudo-centralizado-linha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gap {
+    gap: var(--espaco-medio);
+}
+
+/* ------------------------------------------------------------- */
+
+/* Cards */
+
+.conteiner-catoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+/* ========================================================================= */
+
+/* classes de cores */
+
+.cor-destaque {
+    color: var(--cor-destaque);
+}
+
+
+/* ========================================================================= */
+
+/* Configurações da scroll bar */
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--cor-destaque);
+    border: 1px solid var(--background-sombra);
+    border-radius: 15px;
+}
+
+/* ========================================================================= */
+
+/* Menu */
+
+header {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--cor-background-principal);
+}
+
+.sombra-menu {
+    box-shadow: 0 0.3rem 0.5rem var(--cor-background-sombra);
+}
+
+.menu {
+    justify-content: space-between;
+}
+
+.menu-links {
+    gap: 25px;
+}
+
+/* ========================================================================= */
+
+/* configurações da caixa de pesquisa "search" */
+/* Referencia do input => uiverse.io by @satyamchaudharydev */
+
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+/* removendo o estilo padrão do botão */
+
+.search button {
+    border: none;
+    background: none;
+    color: var(--cor-vermelho-alaranjado);
+}
+
+/* ------------------------------------------------------------- */
+
+/* Estilo de todo o contêiner de entrada */
+
+.search {
+    position: relative;
+    width: 25rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    padding-inline: 0.8em;
+    border-radius: var(--border-radius);
+    transition: border-radius 0.5s ease;
+    background: var(--cor-background-luz);
+}
+
+/* ------------------------------------------------------------- */
+
+/* estilo de entrada */
+
+.input-search {
+    font-size: var(--tamanho-fonte-navegacao);
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+    color: var(--cor-texto-principal);
+}
+
+/* ------------------------------------------------------------- */
+
+/* Estilo de borda animada */
+
+.search:before {
+    content: "";
+    position: absolute;
+    background: var(--cor-destaque);
+    transform: scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: 0.2rem;
+    left: 0;
+    bottom: 0;
+    border-radius: 1px;
+    transition: transform 0.3s ease;
+}
+
+/* ------------------------------------------------------------- */
+
+/* Hover on Input */
+
+.search:focus-within {
+    border-radius: 1px;
+}
+
+.input-search:focus {
+    outline: none;
+}
+
+/* ------------------------------------------------------------- */
+
+/* borda animada */
+
+.search:focus-within:before {
+    transform: scale(1);
+}
+
+/* ------------------------------------------------------------- */
+
+/* estilo do botão Fechar */
+
+/* == você pode clicar no botão Fechar para remover o texto == */
+
+.reset {
+    border: none;
+    background: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* ------------------------------------------------------------- */
+
+/* botão fechar mostrado ao digitar */
+
+.input-search:not(:placeholder-shown) ~ .reset {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ------------------------------------------------------------- */
+
+/* dimensionando ícones SVG */
+
+.search svg {
+    width: 17px;
+    margin-top: 3px;
+}
+  
+/* ========================================================================= */
+
+/* filtro de categorias  */
+
+.filtro-opcoes {
+    display: flex;
+    flex-wrap: wrap;
+    margin: var(--espaco-grande) auto;
+    gap: var(--espaco-medio);
+    justify-content: center;
+}
+
+.filtro-opcoes .opcao input{
+    display: none;
+}
+
+.filtro-opcoes .opcao label {
+    font-size: var(--tamanho-fonte-pequeno-navegacao);
+    font-family: var(--font-family--botoes);
+    font-weight: 700;
+    background-color: var(--cor-background-luz);
+    padding: var(--espaco-muito-pequeno) var(--espaco-pequeno);
+    transition: transform 0.3s ease;  
+}
+
+.filtro-opcoes .opcao input:checked~label {
+    border-radius: 5px 5px 0 0;
+    color: var(--cor-destaque);
+    border-bottom: 0.2rem solid var(--cor-destaque);
+    transition: transform 0.3s ease;
+}
+
+/* ========================================================================= */
+
+/* botão */
+
+.button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    background: none;
+    color: #0f1923;
+    cursor: pointer;
+    position: relative;
+    padding: 8px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all .15s ease;
+}
+
+.button::before,
+.button::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: calc(50% - 5px);
+    border: 1px solid #7D8082;
+    transition: all .15s ease;
+}
+
+.button::before {
+    top: 0;
+    border-bottom-width: 0;
+}
+
+.button::after {
+    bottom: 0;
+    border-top-width: 0;
+}
+
+.button:active,
+.button:focus {
+    outline: none;
+}
+
+.button:active::before,
+.button:active::after {
+    right: 3px;
+    left: 3px;
+}
+
+.button:active::before {
+    top: 3px;
+}
+
+.button:active::after {
+    bottom: 3px;
+}
+
+.button_lg {
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #303030;
+    overflow: hidden;
+    box-shadow: inset 0px 0px 0px 1px transparent;
+}
+
+.button_lg::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background-color: #0f1923;
+}
+
+.button_lg::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 4px;
+    height: 4px;
+    background-color: #0f1923;
+    transition: all .2s ease;
+}
+
+.button_sl {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    left: -8px;
+    width: 0;
+    background-color: #D92525;
+    transform: skew(-15deg);
+    transition: all .2s ease;
+}
+
+.button_text {
+    position: relative;
+}
+
+.button:hover {
+    color: #0f1923;
+}
+
+.button:hover .button_sl {
+    width: calc(100% + 15px);
+}
+
+.button:hover .button_lg::after {
+    background-color: #fff;
+}
