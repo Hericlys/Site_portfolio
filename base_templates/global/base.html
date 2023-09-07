@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page_title}} | HericlysDev </title>
+    {% comment %} <link rel="shortcut icon" href="{% static 'global/images/icons/icon.png' %}" type="image/png"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'global/css/base_style.css' %}">
+    {% block style %}{% endblock style %}
+</head>
+<body>
+    {% block conteudo %}{% endblock conteudo %}
+
+    {% static 'global/js/base_script.js' %}
+    {% block script %}{% endblock script %}
+</body>
+</html>
