@@ -17,3 +17,16 @@ window.addEventListener('scroll', function() {
 })
 
 // ============================================================================
+
+// filtro de categorias
+
+function submitForm() {
+    let form = document.getElementById('form_filtro');
+    form.submit();
+}
+
+function deletSearch() {
+    let search = document.getElementById('search');
+    search.value = ''
+    submitForm()
+}

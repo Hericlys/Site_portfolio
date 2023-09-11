@@ -1,0 +1,13 @@
+<div class="filtro-opcoes wrap">
+    <a href="" class="opcao botao" onclick="submitForm()">
+        <input type="radio" id="geral" name="opcao" value="" checked="">
+        <label for="geral">Geral</label>
+    </a>
+    {% for categoria in categorias %}
+        <a href="" class="opcao botao" onclick="submitForm()">
+            <input type="radio" id="{{categoria.nome}}" name="opcao" value="{{categoria.slug}}"
+            {% if opcao_selecionada == categoria.slug %}checked=""{% endif %}>
+            <label for="{{categoria.nome}}">{{categoria.nome}}</label>
+        </a>
+    {% endfor %}
+</div>

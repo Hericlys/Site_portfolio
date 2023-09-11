@@ -1,0 +1,34 @@
+<div class="projeto-conteiner conteudo-centralizado-coluna width-350">
+    <div class="capa-conteiner">
+        <a href="{% url 'portfolio:projeto' projeto.slug %} ">
+            <img src="{{projeto.capa.url}}" alt="capa do projeto {{projeto.nome}}" class="capa width-350"> 
+        </a>
+    </div>
+    <div class="projeto-infos text-centro">
+        <a href="{% url 'portfolio:projeto' projeto.slug %}">
+            <h2 class="fonte-estilo-titulo fonte-pequeno-titulo cor-destaque margin-top-botom">{{projeto.nome}}</h2>
+        </a>
+        <p class="fonte-navegacao fonte-pequeno-paragrafo margin-top-botom">{{projeto.descricao}}</p>
+        <p class="fonte-pequeno-navegacao fonte-pequeno-paragrafo negrito margin-top-botom">status: {{projeto.status}}</p>
+    </div>
+    <div class="projeto-botoes conteudo-centralizado-linha gap-pequeno">
+        <a href="{{projeto.repositorio_link}}" target="_blank">
+            <button class="button">
+                <span class="button_lg cor-fundo-verde">
+                    <span class="button_sl "></span>
+                    <span class="button_text">GitHub</span>
+                </span>
+            </button>
+        </a>
+        {% if projeto.projeto_aplicado %}
+            <a href="{{projeto.link_aplicacao}}" target="_blank">
+                <button class="button">
+                    <span class="button_lg cor-fundo-laranja">
+                        <span class="button_sl"></span>
+                        <span class="button_text">Aplicação</span>
+                    </span>
+                </button>
+            </a>
+        {% endif %}
+    </div>
+</div>

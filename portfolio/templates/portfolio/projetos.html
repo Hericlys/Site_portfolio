@@ -1,0 +1,33 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'global/css/projetos.css' %}">
+{% endblock style %}
+
+{% block menu_links %}
+
+    <li><a href="{% url 'portfolio:home' %}#home" class="link">Home</a></li>
+    <li><a href="{% url 'portfolio:projetos' %}" class="link">Projetos</a></li>
+    <li><a href="{% url 'portfolio:home' %}#contato" class="link">Contato</a></li>
+    <li><a href="#" class="link">Blog</a></li>
+
+{% endblock menu_links %}
+
+{% block conteudo %}
+    <section id="projetos" class="conteudo-centralizado-coluna">
+        <div class="conteudo-principal">
+            <h2 class="fonte-estilo-titulo fonte-grande-titulo cor-destaque text-centro">Projetos</h2>
+            <p class="fonte-corpo fonte-estilo-paragrafo text-centro">Navegue pelos projetos apresentados aqui para explorar meu portfólio diversificado. Cada projeto é cuidadosamente documentado, destacando os principais desafios, soluções inovadoras e os resultados alcançados. Sinta-se à vontade para entrar em contato comigo se tiver alguma pergunta, feedback ou desejar discutir oportunidades de colaboração.</p>
+        </div>
+        <form id="form_filtro" action="{% url 'portfolio:projetos' %}" method="get" class="conteudo-centralizado-coluna">
+            {% include 'global/parciais/search.html' %}
+            {% include 'global/parciais/filtro_categorias.html' %}
+        </form>
+        <div class="conteiner-catoes">
+            {% for projeto in projetos %}
+                {% include 'portfolio/parciais/cartao_projeto.html' %}
+            {% endfor %}
+        </div>
+    </section>
+{% endblock conteudo %}

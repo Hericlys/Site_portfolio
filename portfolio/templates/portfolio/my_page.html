@@ -1,1 +1,231 @@
 {% extends 'global/base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'global/css/home.css' %}">
+{% endblock style %}
+
+{% block menu_links %}
+
+    <li><a href="{% url 'portfolio:home' %}#home" class="link">Home</a></li>
+    <li><a href="{% url 'portfolio:home' %}#sobre" class="link">Sobre</a></li>
+    <li><a href="{% url 'portfolio:home' %}#servicos" class="link">Serviços</a></li>
+    <li><a href="{% url 'portfolio:home' %}#projetos" class="link">Projetos</a></li>
+    <li><a href="{% url 'portfolio:home' %}#contato" class="link">Contato</a></li>
+    <li><a href="#" class="link">Blog</a></li>
+
+{% endblock menu_links %}
+
+{% block conteudo %}
+
+    <section class="pagina-inteira conteudo-centralizado-coluna" id="home" 
+    aria-details="Área de apresentação inicial e para entrar em contato via WhatsApp">
+        <div class="conteudo-principal home conteudo-centralizado-linha">
+            <div class="home-infos">
+                <p class="fonte-estilo-paragrafo fonte-pequeno-titulo negrito">Olá, Hericlys de Sá</p>
+                <h2 class="fonte-estilo-titulo fonte-grande-titulo cor-destaque">Programador Full stack python <span>|</span></h2>
+
+                <p class="fonte-estilo-paragrafo fonte-pequeno-navegacao margin-top-botom">
+                    Sou um apaixonado por programação. Com expertise em linguagens como Python, C#, JavaScript e SQL.<br>
+                    capaz de criar soluções eficientes e inovadoras. Navegue pelo meu site e descubra meu portfólio de projetos,<br>
+                    artigos e insights sobre o mundo da programação.
+                </p>
+
+                <a href="#sobre">
+                    <button class="button">
+                        <span class="button_lg">
+                            <span class="button_sl"></span>
+                            <span class="button_text">Fale comigo</span>
+                        </span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="conteudo-centralizado-coluna" id="sobre"
+    aria-details="Área de apresentação com informações pessoais sobre o desenvolvedor">
+        <div class="sobre pagina-inteira conteudo-principal conteudo-centralizado-linha">
+            <div class="informacoes conteudo-centralizado-coluna">
+                <h2 class="fonte-estilo-titulo fonte-pequeno-titulo text-centro">Informações pessoais</h2>
+                <div class="info conteudo-centralizado-coluna">
+                    <div class="titulo fonte-estilo-titulo fonte-pequeno-navegacao conteudo-centralizado-linha">
+                        <i class="fa-solid fa-phone"></i>
+                        <h2>Telefone :</h2>
+                    </div>
+                    <p class="fonte-estilo-titulo fonte-pequeno-citacao">(83) 987219309</p>
+                </div>
+                <div class="info conteudo-centralizado-coluna">
+                    <div class="titulo fonte-estilo-titulo fonte-pequeno-navegacao conteudo-centralizado-linha">
+                        <i class="fa-solid fa-envelope"></i>
+                        <h2>Email :</h2>
+                    </div>
+                    <p class="fonte-estilo-titulo fonte-pequeno-citacao">contato.devhericlys@gmail.com</p>
+                </div>
+                <div class="info conteudo-centralizado-coluna">
+                    <div class="titulo fonte-estilo-titulo fonte-pequeno-navegacao conteudo-centralizado-linha">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <h2>Localidade :</h2>
+                    </div>
+                    <p class="fonte-estilo-titulo fonte-pequeno-citacao">João Pessoa, Brasil.</p>
+                </div>
+            </div>
+            <div class="perfil text-centro">
+                <div class="conteiner-img">
+                    <img src=" {% static 'global/images/perfil.jpg' %}" alt="foto de perfil de hericlys">
+                </div>
+                <div class="conteiner-info-pessoais">
+                    <div class="infos">
+                        <h2 class="fonte-estilo-titulo fonte-titulo cor-destaque">Hericlys de Sá</h2>
+                        <p class="fonte-estilo-links fonte-pequeno-navegacao negrito">Programador Full stack python & Game developer</p>
+                        <div class="social-media conteudo-centralizado-linha">
+                            <a href="#" class="instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#" class="whatsapp">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="youtube">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                            <a href="#" class="linkedin">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="discord">
+                                <i class="fa-brands fa-discord"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="habilidades">
+                <h2 class="fonte-estilo-titulo fonte-pequeno-titulo text-centro">Minhas principais habilidades</h2>
+                <div class="habilidade conteudo-centralizado-coluna">
+                    <h3 class="text-centro fonte-estilo-titulo fonte-pequeno-titulo">Python</h3>
+                    <div class="barra">
+                        <div class="python"></div>
+                        <p class="fonte-estilo-titulo fonte-pequeno-navegacao negrito">90%</p>
+                    </div>
+                </div>
+                <div class="habilidade conteudo-centralizado-coluna">
+                    <h3 class="text-centro fonte-estilo-titulo fonte-pequeno-titulo">HTML e CSS</h3>
+                    <div class="barra">
+                        <div class="HTML-CSS"></div>
+                        <p class="fonte-estilo-titulo fonte-pequeno-navegacao negrito">80%</p>
+                    </div>
+                </div>
+                <div class="habilidade conteudo-centralizado-coluna">
+                    <h3 class="text-centro fonte-estilo-titulo fonte-pequeno-titulo">C sharpe</h3>
+                    <div class="barra">
+                        <div class="Csharpe"></div>
+                        <p class="fonte-estilo-titulo fonte-pequeno-navegacao negrito">75%</p>
+                    </div>
+                </div>
+                <div class="habilidade conteudo-centralizado-coluna">
+                    <h3 class="text-centro fonte-estilo-titulo fonte-pequeno-titulo">Banco de Dados</h3>
+                    <div class="barra">
+                        <div class="DB"></div>
+                        <p class="fonte-estilo-titulo fonte-pequeno-navegacao negrito">80%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="" id="servicos"
+    aria-details="Área de apresentação dos serviços">
+        <div class="conteudo-principal servicos">
+            <div class="cabecalho">
+                <h2 class="fonte-estilo-titulo fonte-grande-titulo cor-destaque">Meus serviços</h2>
+                <p class="fonte-corpo fonte-estilo-paragrafo">Se você está em busca de soluções tecnológicas eficientes e sob medida, você está no lugar certo.<br>Deixe-me ajudar a transformar suas ideias em realidade.</p>
+            </div>
+            <div class="conteiner-catoes">
+                <div class="servico-catoes conteudo-centralizado-coluna text-centro">
+                    <div class="icon-container">
+                        <i class="fa-solid fa-microchip fonte-grande-citacao"></i>
+                    </div>
+                    <h3 class="fonte-estilo-titulo fonte-titulo cor-destaque">Desenvolvimento de software personalizado</h3>
+                    <p class="fonte-estilo-paragrafo fonte-pequeno-citacao">
+                        Criamos aplicativos e sistemas personalizados sob medida para atender 
+                        às suas necessidades específicas. Desde o planejamento até a implantação, 
+                        garantimos que sua solução seja eficiente, escalável e segura.
+                    </p>
+                </div>
+                <div class="servico-catoes conteudo-centralizado-coluna text-centro">
+                    <div class="icon-container">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="fonte-estilo-titulo fonte-titulo cor-destaque">Manutenção e Otimização de Sistemas</h3>
+                    <p class="fonte-estilo-paragrafo fonte-pequeno-citacao">
+                        Mantenha seus sistemas em perfeito funcionamento. 
+                        Fornecemos suporte contínuo, atualizações de segurança 
+                        e otimização para garantir que seu software opere com eficiência máxima.
+                    </p>
+                </div>
+                <div class="servico-catoes conteudo-centralizado-coluna text-centro">
+                    <div class="icon-container">
+                        <i class="fa-brands fa-connectdevelop"></i>
+                    </div>
+                    <h3 class="fonte-estilo-titulo fonte-titulo cor-destaque">Desenvolvimento Web</h3>
+                    <p class="fonte-estilo-paragrafo fonte-pequeno-citacao">
+                        Construção de sites e aplicações web modernos e responsivos. 
+                        Nossa expertise em HTML, CSS e JavaScript garante que sua 
+                        presença online seja cativante e funcional em todos os dispositivos.
+                    </p>
+                </div>
+                <div class="servico-catoes conteudo-centralizado-coluna text-centro">
+                    <div class="icon-container">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h3 class="fonte-estilo-titulo fonte-titulo cor-destaque">Integração de Bancos de Dados e SQL</h3>
+                    <p class="fonte-estilo-paragrafo fonte-pequeno-citacao">
+                        Resolvo integrações de bancos de dados e consultas 
+                        SQL complexas para extrair insights valiosos de seus dados. 
+                        Isso ajuda na tomada de decisões baseadas em dados sólidos.
+                    </p>
+                </div>
+                <div class="servico-catoes conteudo-centralizado-coluna text-centro">
+                    <div class="icon-container">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <h3 class="fonte-estilo-titulo fonte-titulo cor-destaque">Desenvolvimento de Jogos Digitais</h3>
+                    <p class="fonte-estilo-paragrafo fonte-pequeno-citacao">
+                        Transformamos suas ideias de jogos em realidade. Com expertise em desenvolvimento de jogos 2D e 3D, 
+                        criamos experiências envolventes para diversas plataformas. Desde conceitos iniciais até a publicação, 
+                        cuidamos de cada etapa do processo.
+                    </p>
+                </div>
+                <div class="servico-catoes conteudo-centralizado-coluna text-centro">
+                    <div class="icon-container">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h3 class="fonte-estilo-titulo fonte-titulo cor-destaque">Design de Arte para Jogos</h3>
+                    <p class="fonte-estilo-paragrafo fonte-pequeno-citacao">
+                        A estética de um jogo desempenha um papel fundamental na experiência do jogador. 
+                        Oferecemos serviços de design de arte de alta qualidade, criando personagens, cenários, 
+                        animações e elementos visuais que tornam seu jogo cativante e memorável.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pagina-inteira" id='projetos'
+    aria-details="Área de apresentação dos meus projetos mais recentes">
+        <div class="conteudo-principal">
+            <div class="cabecalho">
+                <h2 class="fonte-estilo-titulo fonte-grande-titulo cor-destaque">Meus Proejtos</h2>
+                <p class="fonte-corpo fonte-estilo-paragrafo">Explore projetos incriveis feito por mim, descubra como foram feitos e cada tomada de decisão por trás de cada linha de codigo.</p>
+            </div>
+            <form id="form_filtro" action="{% url 'portfolio:home' %}#projetos" method="get">
+                {% include 'global/parciais/filtro_categorias.html' %}
+            </form>
+            <div class="conteiner-catoes">
+                {% for projeto in projetos %}
+                    {% include 'portfolio/parciais/cartao_projeto.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock conteudo %}

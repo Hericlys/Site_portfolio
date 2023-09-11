@@ -13,6 +13,7 @@
     --cor-background-principal: #1E1E1E;
     --cor-background-luz: #303030;
     --cor-background-sombra: #0c0c0c;
+    --cor-background-muita-luz: #6c6c6c;
     --cor-texto-principal: #F2EEEB;
     --cor-destaque: #D92525;
     --cor-laranja: #F26B1D;
@@ -243,8 +244,28 @@ li {
     justify-content: center;
 }
 
+.gap-grande {
+    gap: var(--espaco-grande);
+}
+
 .gap {
     gap: var(--espaco-medio);
+}
+
+.gap-pequeno {
+    gap: var(--espaco-pequeno);
+}
+
+.gap-micro {
+    gap: var(--espaco-micro);
+}
+
+.margin-top-botom {
+    margin: var(--espaco-medio) 0;
+}
+
+.width-350 {
+    width: 350px;   
 }
 
 /* ------------------------------------------------------------- */
@@ -254,10 +275,29 @@ li {
 .conteiner-catoes {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     gap: 25px;
     margin-top: 25px;
+}
+
+.projeto-conteiner {
+    background-color: var(--cor-background-luz);
+    padding: 0 5px;
+}
+
+.projeto-conteiner:hover {
+    scale: 101%;
+    -webkit-box-shadow: 6px 9px 5px 0px rgba(0,0,0,0.43);
+    -moz-box-shadow: 6px 9px 5px 0px rgba(0,0,0,0.43);
+    box-shadow: 6px 9px 5px 0px rgba(0,0,0,0.43);
+    transition: all 0.3s ease-in;
+}
+
+
+.projeto-conteiner .capa-conteiner {
+    max-height: 200px;
+    overflow: hidden;
 }
 
 /* ========================================================================= */
@@ -267,7 +307,6 @@ li {
 .cor-destaque {
     color: var(--cor-destaque);
 }
-
 
 /* ========================================================================= */
 
@@ -308,6 +347,11 @@ header {
 
 .menu-links {
     gap: 25px;
+}
+
+.link:hover {
+    color: var(--cor-destaque);
+    transition: all 0.5s ease-in-out;
 }
 
 /* ========================================================================= */
@@ -583,4 +627,15 @@ input[type='search']::-webkit-search-results-decoration {
 
 .button:hover .button_lg::after {
     background-color: #fff;
+}
+
+/* ========================================================================  */
+/* cor de background */
+
+.cor-fundo-verde {
+    background-color: var(--cor-verde);
+}
+
+.cor-fundo-laranja {
+    background-color: var(--cor-laranja);
 }

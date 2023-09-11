@@ -11,15 +11,16 @@
     {% comment %} <link rel="shortcut icon" href="{% static 'global/images/icons/icon.png' %}" type="image/png"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'global/css/base_style.css' %}">
     {% block style %}{% endblock style %}
+    <script src="https://kit.fontawesome.com/6d08cf6339.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="" data-header="menu">
         <div class="menu conteudo-principal conteudo-centralizado-linha">
             <div class="logo">
-                <h1 class="fonte-titulo fonte-estilo-titulo">Hericlys de Sá</h1>
+                <h1 class="fonte-titulo fonte-estilo-titulo">Hericlys <span class="cor-destaque">Dev</span></h1>
             </div>
             <nav>
-                <ul class="menu-links conteudo-centralizado-linha">
+                <ul class="menu-links conteudo-centralizado-linha fonte-estilo-links fonte-pequeno-navegacao">
                     {% block menu_links %}{% endblock menu_links %}
                 </ul>
             </nav>
@@ -28,7 +29,9 @@
 
     {% block conteudo %}{% endblock conteudo %}
 
-    {% static 'global/js/base_script.js' %}
+    <script src=" {% static 'global/js/base_script.js' %}"></script>
+    
     {% block script %}{% endblock script %}
+    
 </body>
 </html>
