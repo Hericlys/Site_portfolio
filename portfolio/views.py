@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from portfolio.models import CategoriaProjeto, Projeto
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 
 def home(request):
@@ -10,6 +11,7 @@ def home(request):
         'projetos': projetos,
         'categorias': categorias,
         'page_title': 'Home',
+        'all': True,
     }
 
     if 'opcao' in request.GET and request.GET.get('opcao') != '':
@@ -67,11 +69,20 @@ def projetos(request):
                 'search_value': search_value,
             })
 
+    paginator = Paginator(projetos, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context.update({
+        'page_obj': page_obj,
+    })
+
     return render(request, 'portfolio/projetos.html', context)
 
 
 def projeto(request, slug):
+    projeto = Projeto.objects.get(slug=slug)
     context = {
-        'page_title': 'projeto', 
+        'page_title': 'projeto',
+        'projeto': projeto,
     }
     return render(request, 'portfolio/my_page.html', context)

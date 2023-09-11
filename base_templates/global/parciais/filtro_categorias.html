@@ -10,4 +10,10 @@
             <label for="{{categoria.nome}}">{{categoria.nome}}</label>
         </a>
     {% endfor %}
+    {% if all %}
+        <a href="{% url 'portfolio:projetos' %}" class="opcao botao" onclick="">
+            <input type="radio" id="all" name="opcao" value="">
+            <label for="all">todos</label>
+        </a>
+    {% endif %}
 </div>

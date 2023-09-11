@@ -6,7 +6,6 @@ class CategoriaProjetoAdmin(admin.ModelAdmin):
     list_display = 'id', 'nome',
     list_display_links = 'nome',
     list_per_page = 10
-    list_filter = 'nome',
     prepopulated_fields = {
         'slug': ('nome',),
     }
@@ -22,7 +21,7 @@ class ProjetoAdmin(admin.ModelAdmin):
     ]
     list_display_links = 'nome',
     list_editable = 'visivel', 'conteudo_capa', 'status',
-    list_filter = 'nome', 'categoria', 'visivel',
+    list_filter = 'categoria', 'visivel',
     list_per_page = 10
     prepopulated_fields = {
         'slug': ('nome',),

@@ -1,7 +1,8 @@
 <div class="projeto-conteiner conteudo-centralizado-coluna width-350">
     <div class="capa-conteiner">
         <a href="{% url 'portfolio:projeto' projeto.slug %} ">
-            <img src="{{projeto.capa.url}}" alt="capa do projeto {{projeto.nome}}" class="capa width-350"> 
+            <img src="https://picsum.photos/350/300?random={{ forloop.counter }}">
+            <!-- <img src="{{projeto.capa.url}}" alt="capa do projeto {{projeto.nome}}" class="capa width-350">  -->
         </a>
     </div>
     <div class="projeto-infos text-centro">
