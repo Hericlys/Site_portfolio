@@ -28,6 +28,9 @@
     </header>
 
     {% block conteudo %}{% endblock conteudo %}
+   
+    {% include 'global/parciais/paginator.html' %}
+
 
     <script src=" {% static 'global/js/base_script.js' %}"></script>
     

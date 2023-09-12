@@ -1,0 +1,25 @@
+{% if page_obj %}
+<div class="conteudo-principal conteudo-centralizado-coluna">
+    <div class="pagination margin-top-botom">
+        <span class="step-links fonte-estilo-botoes fonte-grande-navegacao conteudo-centralizado-linha gap">
+            <div class="anterior conteudo-centralizado-linha gap">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1&search={{request.GET.search.strip}}&opcao={{request.GET.opcao}}">Primeira</a>
+                    <a href="?page={{ page_obj.previous_page_number }}&search={{request.GET.search.strip}}&opcao={{request.GET.opcao}}"><i class="fa-solid fa-chevron-left"></i>  Anterior</a>
+                {% endif %}
+            </div>
+            <span class="current">
+                Pagina: {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+            </span>
+            <div class="proxima conteudo-centralizado-linha gap">
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}&search={{request.GET.search.strip}}&opcao={{request.GET.opcao}}">Próxima  <i class="fa-solid fa-chevron-right"></i></a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}&search={{request.GET.search.strip}}&opcao={{request.GET.opcao}}">Última</a>
+                {% endif %}
+            </div>
+        </span>
+    </div>
+</div>
+{% endif %}
+
+{% comment %} search=programação&opcao= {% endcomment %}

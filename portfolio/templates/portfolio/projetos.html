@@ -8,7 +8,6 @@
 {% block menu_links %}
 
     <li><a href="{% url 'portfolio:home' %}#home" class="link">Home</a></li>
-    <li><a href="{% url 'portfolio:projetos' %}" class="link">Projetos</a></li>
     <li><a href="{% url 'portfolio:home' %}#contato" class="link">Contato</a></li>
     <li><a href="#" class="link">Blog</a></li>
 
@@ -25,9 +24,13 @@
             {% include 'global/parciais/filtro_categorias.html' %}
         </form>
         <div class="conteiner-catoes">
-            {% for projeto in projetos %}
-                {% include 'portfolio/parciais/cartao_projeto.html' %}
-            {% endfor %}
+            {% if page_obj %}
+                {% for projeto in page_obj %}
+                    {% include 'portfolio/parciais/cartao_projeto.html' %}
+                {% endfor %}
+            {% else %}
+                <h2 class="fonte-estilo-titulo">Ops... Não encontramos projetos registrados.</h2>
+            {% endif %}
         </div>
     </section>
 {% endblock conteudo %}

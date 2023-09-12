@@ -425,6 +425,21 @@ input[type='search']::-webkit-search-results-decoration {
 
 /* ------------------------------------------------------------- */
 
+/* paginator */
+
+.pagination a {
+    padding: var(--espaco-micro);
+    background-color: var(--cor-background-luz);
+    border: 0.1rem solid var(--cor-background-muita-luz);
+}
+
+.pagination a:hover {
+    transition: all 0.3s ease;
+    color: var(--cor-destaque);
+}
+
+/* ------------------------------------------------------------- */
+
 /* Hover on Input */
 
 .search:focus-within {

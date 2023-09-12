@@ -32,7 +32,7 @@ def projetos(request):
     context = {
         'projetos': projetos,
         'categorias': categorias,
-        'page_title': 'Home',
+        'page_title': 'Projetos',
         'search_value': '',
     }
 
@@ -50,7 +50,6 @@ def projetos(request):
             ).filter(visivel=True).order_by('-id')
 
             context.update({
-                'projetos': projetos,
                 'opcao_selecionada': opcao_selecionada,
                 'search_value': search_value,
             })
@@ -64,7 +63,6 @@ def projetos(request):
             ).filter(visivel=True).order_by('-id')
 
             context.update({
-                'projetos': projetos,
                 'opcao_selecionada': opcao_selecionada,
                 'search_value': search_value,
             })
@@ -73,6 +71,7 @@ def projetos(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context.update({
+        'projetos': '',
         'page_obj': page_obj,
     })
 
@@ -85,4 +84,4 @@ def projeto(request, slug):
         'page_title': 'projeto',
         'projeto': projeto,
     }
-    return render(request, 'portfolio/my_page.html', context)
+    return render(request, 'portfolio/projeto.html', context)

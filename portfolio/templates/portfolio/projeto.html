@@ -1,0 +1,32 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'global/css/projeto.css' %}">
+{% endblock style %}
+
+{% block menu_links %}
+
+    <li><a href="{% url 'portfolio:home' %}" class="link">Home</a></li>
+    <li><a href="{% url 'portfolio:projetos' %}" class="link">Projetos</a></li>
+    <li><a href="#" class="link">Blog</a></li>
+
+{% endblock menu_links %}
+
+{% block conteudo %}
+    <section>
+        <div class="conteudo-principal conteudo-centralizado-coluna gap">
+            {% if projeto.conteudo_capa %}
+                <img src="{{projeto.capa.url}}" alt="capa o projeto {{projeto.nome}}">
+            {% endif %}
+
+            <h2>{{projeto.nome}}</h2>
+            <p>{{projeto.descricao}}</p>
+            <div>
+                {{projeto.conteudo | safe }}
+            </div>
+
+        </div>
+    </section>
+{% endblock conteudo %}

@@ -221,9 +221,14 @@
                 {% include 'global/parciais/filtro_categorias.html' %}
             </form>
             <div class="conteiner-catoes">
-                {% for projeto in projetos %}
-                    {% include 'portfolio/parciais/cartao_projeto.html' %}
-                {% endfor %}
+                {% if projetos %}
+                    {% for projeto in projetos %}
+                        {% include 'portfolio/parciais/cartao_projeto.html' %}
+                    {% endfor %}
+                {% else %}
+                    <h2 class="fonte-estilo-titulo">Ops... Não encontramos projetos registrados.</h2>
+                {% endif %}
+
             </div>
         </div>
     </section>

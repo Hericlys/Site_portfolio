@@ -39,7 +39,7 @@ class Projeto(models.Model):
         on_delete=models.SET_NULL,
         null=True,
     )
-    capa = models.ImageField(upload_to='projetos/%Y/%m')
+    capa = models.ImageField(upload_to='projetos/%Y/%m/')
     descricao = models.CharField(max_length=255)
     conteudo_capa = models.BooleanField(
         default=True,
