@@ -1,5 +1,7 @@
 from django.contrib import admin
 from portfolio.models import CategoriaProjeto, Projeto
+from django_summernote.admin import SummernoteModelAdmin
+
 
 @admin.register(CategoriaProjeto)
 class CategoriaProjetoAdmin(admin.ModelAdmin):
@@ -13,7 +15,8 @@ class CategoriaProjetoAdmin(admin.ModelAdmin):
 
 
 @admin.register(Projeto)
-class ProjetoAdmin(admin.ModelAdmin):
+class ProjetoAdmin(SummernoteModelAdmin):
+    summernote_fields = ('conteudo', )
     list_display = [
         'id', 'nome',
         'categoria', 'conteudo_capa',

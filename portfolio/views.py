@@ -38,7 +38,7 @@ def projetos(request):
 
     if 'opcao' in request.GET:
         opcao_selecionada = request.GET.get('opcao')
-        search_value = request.GET.get('search')
+        search_value = str(request.GET.get('search')).strip()
 
         try:
             categoria = CategoriaProjeto.objects.get(slug=opcao_selecionada)
