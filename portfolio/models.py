@@ -1,5 +1,6 @@
 from django.db import models
 from utils.rands import slugify_new
+from utils.images import resize_image
 
 
 class CategoriaProjeto(models.Model):
@@ -67,9 +68,19 @@ class Projeto(models.Model):
     )
 
     def save(self, *args, **kwargs):
-        
         if not self.slug:
             self.slug = slugify_new(self.name)
+
+        current_capa_name = str(self.capa.name)
+        super().save(*args, **kwargs)
+        capa_changed = False
+
+        if self.capa:
+            capa_changed = current_capa_name != self.capa.name
+
+        if capa_changed:
+            resize_image(self.capa, 900)
+
         return super().save(*args, **kwargs)
 
     def __str__(self):
