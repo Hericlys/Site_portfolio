@@ -21,9 +21,38 @@
                 <img src="{{projeto.capa.url}}" alt="capa o projeto {{projeto.nome}}">
             {% endif %}
 
-            <h2>{{projeto.nome}}</h2>
-            <p>{{projeto.descricao}}</p>
-            <div>
+            <div class="cabecalho text-centro">
+                <h2 class="nome fonte-estilo-titulo cor-destaque">{{projeto.nome}}</h2>
+                <p class="descricao fonte-estilo-titulo">{{projeto.descricao}}</p>
+                <div class="infos conteudo-centralizado-coluna fonte-estilo-navegacao">
+                    <div class="conteudo-centralizado-linha gap">
+                        <a href="{{projeto.repositorio_link}}" target="_blank">
+                            <button class="button">
+                                <span class="button_lg cor-fundo-verde">
+                                    <span class="button_sl "></span>
+                                    <span class="button_text">GitHub</span>
+                                </span>
+                            </button>
+                        </a>
+                        {% if projeto.projeto_aplicado  %}
+                            <a href="{{projeto.link_aplicacao}}" target="_blank">
+                                <button class="button">
+                                    <span class="button_lg cor-fundo-laranja">
+                                        <span class="button_sl"></span>
+                                        <span class="button_text">Aplicação</span>
+                                    </span>
+                                </button>
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <p>Categoria: <span>{{projeto.categoria}}</span></p>
+                        <p>Status: <span>{{projeto.status}}</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fonte-pequeno-citacao">
                 {{projeto.conteudo | safe }}
             </div>
 

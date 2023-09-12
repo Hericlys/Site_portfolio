@@ -1,0 +1,22 @@
+.cabecalho {
+    margin: 25px 0;
+}
+
+.cabecalho .nome {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.cabecalho .descricao {
+    font-size: 20px;
+}
+
+.cabecalho .infos {
+    margin: 15px 0;
+    font-size: 18px;
+    align-items: center;
+}
+
+.cabecalho .infos p span {
+    font-weight: bold;
+}
