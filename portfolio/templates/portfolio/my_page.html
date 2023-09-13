@@ -233,4 +233,61 @@
         </div>
     </section>
 
+    <section class="pagina-inteira conteudo-centralizado-coluna" id="contato" aria-details="Área para formulario de contato">
+        <div class="conteudo-principal conteudo-centralizado-linha">
+            <div class="img-container">
+                <img src="{% static "global/images/Developer-activity-bro.svg" %}" alt="">
+            </div>
+            <form action="#contato" method="post" class="conteudo-centralizado-coluna gap">
+                {% csrf_token %}
+                <div class="text-info">
+                    <h2 class="text-centro fonte-estilo-titulo fonte-titulo cor-destaque">Contato</h2>
+                    <p class="text-centro fonte-estilo-paragrafo fonte-navegacao">Se você está buscando soluções eficazes para suas necessidades de 
+                        desenvolvimento, não hesite em entrar em contato. 
+                        Basta preencher o formulário abaixo, descrever seu 
+                        projeto ou pergunta, e eu responderei o mais rápido possível.
+                    </p>
+                </div>
+                <div class="nomes conteudo-centralizado-linha gap-pequeno">
+                    <div class="input-container conteudo-centralizado-coluna">
+                        <label class="fonte-estilo-links fonte-navegacao" for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" required placeholder="Digite seu nome">
+                    </div>
+                    <div class="input-container conteudo-centralizado-coluna">
+                        <label class="fonte-estilo-links fonte-navegacao" for="sobrenome">Sobrenome</label>
+                        <input type="text" name="sobrenome" id="sobrenome" required placeholder="Digite seu sobrenome">
+                    </div>
+                </div>
+                <div class="contatos conteudo-centralizado-linha gap-pequeno">
+                    <div class="input-container conteudo-centralizado-coluna">
+                        <label class="fonte-estilo-links fonte-navegacao" for="telefone" class="">Telefone</label>
+                        <input type="text" name="telefone" id="telefone" required placeholder="(00) 00000-0000">
+                    </div>
+                    <div class="input-container conteudo-centralizado-coluna">
+                        <label class="fonte-estilo-links fonte-navegacao" for="email">E-mail</label>
+                        <input type="email" name="email" id="email" required placeholder="SeuMelhor@email.com">
+                    </div>
+                </div>
+                <div class="mensagem-container">
+                    <div class="input-container conteudo-centralizado-coluna">
+                        <label for="categoria" class="fonte-estilo-links fonte-navegacao">Categoria</label>
+                        <select>
+                            <option value="teste">teste</option>
+                        </select>
+                    </div>
+                    <div class="input-container conteudo-centralizado-coluna">
+                        <label for="mensagem" class="fonte-estilo-links fonte-navegacao">Mensagem</label>
+                        <textarea name="mensagem" id="mensagem" cols="30" rows="10" required placeholder="digite sua mensagem aqui"></textarea>
+                    </div>
+                </div>
+                <button class="button">
+                    <span class="button_lg cor-fundo-verde">
+                        <span class="button_sl "></span>
+                        <span class="button_text">Enviar</span>
+                    </span>
+                </button>
+            </form>
+        </div>
+    </section>
+
 {% endblock conteudo %}

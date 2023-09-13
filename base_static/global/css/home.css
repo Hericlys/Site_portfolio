@@ -278,3 +278,87 @@
     scale: 105%;
     color: #F2EEEB;
 }
+
+/* ========================================================================= */
+/* contato */
+
+#contato .conteudo-principal {
+    gap: 70px;
+}
+
+#contato form {
+    max-width: 420px;
+    gap: 10px;
+}
+
+#contato .img-container img{
+    height: 420px;
+}
+
+#contato .text-info {
+    padding: 15px;
+    border: 0.2rem solid #6c6c6c;
+    border-bottom: none;
+    background-color: #303030;
+}
+
+.input-container {
+    align-items: start;
+}
+
+.input-container label {
+    margin: 0.2rem;
+}
+
+.input-container input {
+    height: 35px;
+    padding: 5px;
+    background-color: #303030;
+    border: 0.2rem solid transparent;
+    color: white;
+    outline: none;
+}
+
+.mensagem-container {
+    width: calc(100%);
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border: 0.2rem solid #6c6c6c;
+    border-top: none;
+}
+
+.mensagem-container .input-container {
+    align-items: center;
+}
+
+.mensagem-container .input-container label {
+    margin-top: 5px;
+}
+
+textarea, select {
+    width: calc(100%);
+    border: 0.2rem solid transparent;
+    background-color: #303030;
+    color: white;
+    padding: 5px;
+    outline: none;
+}
+
+.input-container:hover>input, .input-container:hover>textarea {
+    border-bottom: 0.2rem solid #6c6c6c;
+    border-radius: 5px 5px 0 0;
+    transition: all 0.3s ease;
+}
+
+.input-container input:focus:hover, .input-container input:focus, .input-container textarea:focus:hover, .input-container textarea:focus {
+    border-bottom: 0.2rem solid #D92525;
+    transition: all 0.3s ease;
+}
+
+.contatos, .nomes {
+    padding: 15px;
+    border: 0.2rem solid #D92525;
+    border-bottom: none;
+    border-top: none;
+}
