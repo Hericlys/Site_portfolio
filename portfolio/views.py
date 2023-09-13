@@ -79,7 +79,13 @@ def projetos(request):
 
 
 def projeto(request, slug):
-    projeto = Projeto.objects.get(slug=slug)
+    try:
+        projeto = Projeto.objects.get(slug=slug, visivel=True)
+    except:
+        context = {
+            'slug': slug,
+        }
+        return render(request, 'portfolio/page_404.html', context)
     context = {
         'page_title': 'projeto',
         'projeto': projeto,

@@ -654,3 +654,11 @@ input[type='search']::-webkit-search-results-decoration {
 .cor-fundo-laranja {
     background-color: var(--cor-laranja);
 }
+
+/* ========================================================================  */
+/* 404 */
+
+.img-404 {
+    width: 400px;
+    height: 400px;
+}

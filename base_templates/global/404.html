@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erro 404</title>
+    <link rel="stylesheet" href="{% static "global/css/base_style.css" %}">
+</head>
+<body>
+    <section class="pagina-inteira conteudo-centralizado-coluna">
+        <div class="conteudo-principal">
+            <div class="img-404">
+                <img src="{% static "global/images/Monster-404-Error-amico.svg" %}" alt="ilustração 404 erro">
+            </div>
+        </div>
+        {% block mensagem %}{% endblock mensagem %}
+    </section>
+</body>
+</html>

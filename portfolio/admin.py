@@ -1,6 +1,7 @@
 from django.contrib import admin
 from portfolio.models import CategoriaProjeto, Projeto
 from django_summernote.admin import SummernoteModelAdmin
+from django.utils.safestring import mark_safe
 
 
 @admin.register(CategoriaProjeto)

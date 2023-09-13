@@ -135,15 +135,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SUMMERNOTE_CONFIG = {
     'summernote': {
-        'toolbar': [
-            ['style', ['style',]],
-            ['font', ['bold', 'italic', 'clear']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph', 'hr',]],
-            ['table', ['table']],
-            ['insert', ['link', 'picture']],
-            ['view', ['fullscreen', 'codeview', 'undo', 'redo']],
-        ],
         'codemirror': {
             'mode': 'htmlmixed',
             'lineNumbers': 'true',
