@@ -123,7 +123,7 @@ class Trabalho(models.Model):
         ("descontinuado", "descontinuado"),
     ]
     status_projeto = models.CharField(max_length=255, choices=STATUS_CHOICES, default=STATUS_CHOICES[0])
-    valor = models.FloatField(blank=True)
+    valor = models.FloatField(blank=True, default=0.0)
     contrato = models.FileField(upload_to='Trabalhos/%Y/%M', blank=True, null=True)
 
     def __str__(self):

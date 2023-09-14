@@ -3,6 +3,7 @@ from portfolio.models import CategoriaProjeto, Projeto, Assunto, Trabalho
 from django.db.models import Q
 from django.core.paginator import Paginator
 from accounts.models import User
+from utils.rands import random_letters
 
 
 def home(request):
@@ -34,6 +35,27 @@ def home(request):
         assunto = request.POST.get('assunto')
         mensagem = request.POST.get('mensagem')
 
+        if not User.objects.get(email=email):
+            user  = User(
+                first_name=nome,
+                last_name=sobrenome,
+                username=f"{nome}_{sobrenome}_{random_letters()}",
+                email=email,
+                telefone=telefone,
+                password=random_letters(8)
+            )
+
+            print(user.username)
+            print(user.password)
+
+            user.save()
+
+            trabalho = Trabalho(
+                user=user,
+                assunto=Assunto.objects.get(slug=assunto),
+                mensagem=mensagem,
+            )
+            trabalho.save()
 
     return render(request, 'portfolio/my_page.html', context)
 
