@@ -1,10 +1,12 @@
 from django.shortcuts import render
-from portfolio.models import CategoriaProjeto, Projeto
+from portfolio.models import CategoriaProjeto, Projeto, Assunto, Trabalho
 from django.db.models import Q
 from django.core.paginator import Paginator
+from accounts.models import User
 
 
 def home(request):
+    assuntos = Assunto.objects.all()
     projetos = Projeto.objects.filter(visivel=True).order_by('-id')[:6]
     categorias = CategoriaProjeto.objects.all()
     context = {
@@ -12,6 +14,7 @@ def home(request):
         'categorias': categorias,
         'page_title': 'Home',
         'all': True,
+        'assuntos': assuntos,
     }
 
     if 'opcao' in request.GET and request.GET.get('opcao') != '':
@@ -22,6 +25,15 @@ def home(request):
             'opcao_selecionada': opcao_selecionada,
             'projetos': projetos,
         })
+
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        sobrenome = request.POST.get('sobrenome')
+        email = request.POST.get('email')
+        telefone = request.POST.get('telefone')
+        assunto = request.POST.get('assunto')
+        mensagem = request.POST.get('mensagem')
+
 
     return render(request, 'portfolio/my_page.html', context)
 

@@ -271,8 +271,10 @@
                 <div class="mensagem-container">
                     <div class="input-container conteudo-centralizado-coluna">
                         <label for="categoria" class="fonte-estilo-links fonte-navegacao">Categoria</label>
-                        <select>
-                            <option value="teste">teste</option>
+                        <select name="assunto">
+                            {% for assunto in assuntos %}
+                                <option value="{{assunto.slug}}">{{assunto.nome}}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="input-container conteudo-centralizado-coluna">

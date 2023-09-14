@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'accounts.User'
 
 # Application definition
 
@@ -40,8 +41,9 @@ INSTALLED_APPS = [
 ]
 
 INSTALLED_APPS += [
-    'portfolio',
+    'accounts',
     'attachment',
+    'portfolio',
     'django_summernote',
 ]
 

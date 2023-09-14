@@ -1,6 +1,7 @@
 from django.db import models
 from utils.rands import slugify_new
 from utils.images import resize_image
+from accounts.models import User
 
 
 class CategoriaProjeto(models.Model):
@@ -85,3 +86,45 @@ class Projeto(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+class Assunto(models.Model):
+    nome = models.CharField(max_length=255)
+    slug = models.SlugField(
+        unique=True,
+        default=None,
+        null=True,
+        blank=True,
+        max_length=255,
+    )
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify_new(self.name)
+        return super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.nome
+
+
+class Trabalho(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE
+    )
+    assunto = models.ForeignKey(
+        Assunto, on_delete=models.SET_NULL, null=True
+    )
+    mensagem = models.TextField()
+    STATUS_CHOICES = [
+        ("Pedido-recebido", "Pedido recebido"),
+        ("Em-negociação", "Em negociação"),
+        ("Em-produção", "Em produção"),
+        ("Finalizado", "Finalizado"),
+        ("descontinuado", "descontinuado"),
+    ]
+    status_projeto = models.CharField(max_length=255, choices=STATUS_CHOICES, default=STATUS_CHOICES[0])
+    valor = models.FloatField(blank=True)
+    contrato = models.FileField(upload_to='Trabalhos/%Y/%M', blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.user.first_name} {self.user.last_name}"
