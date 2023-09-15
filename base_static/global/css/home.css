@@ -351,8 +351,13 @@ textarea, select {
     transition: all 0.3s ease;
 }
 
-.input-container input:focus:hover, .input-container input:focus, .input-container textarea:focus:hover, .input-container textarea:focus {
+.input-container input:focus:invalid, .input-container textarea:focus:invalid {
     border-bottom: 0.2rem solid #D92525;
+    transition: all 0.3s ease;
+}
+
+.input-container input:valid, .input-container textarea:valid {
+    border-bottom: 0.2rem solid #27AE60;
     transition: all 0.3s ease;
 }
 

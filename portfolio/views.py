@@ -35,7 +35,7 @@ def home(request):
         assunto = request.POST.get('assunto')
         mensagem = request.POST.get('mensagem')
 
-        if not User.objects.get(email=email):
+        if not User.objects.filter(email=email):
             user  = User(
                 first_name=nome,
                 last_name=sobrenome,

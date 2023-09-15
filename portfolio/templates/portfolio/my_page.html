@@ -238,7 +238,7 @@
             <div class="img-container">
                 <img src="{% static "global/images/Developer-activity-bro.svg" %}" alt="">
             </div>
-            <form action="#contato" method="post" class="conteudo-centralizado-coluna gap">
+            <form action="#contato" method="post" class="conteudo-centralizado-coluna gap form">
                 {% csrf_token %}
                 <div class="text-info">
                     <h2 class="text-centro fonte-estilo-titulo fonte-titulo cor-destaque">Contato</h2>
@@ -251,21 +251,35 @@
                 <div class="nomes conteudo-centralizado-linha gap-pequeno">
                     <div class="input-container conteudo-centralizado-coluna">
                         <label class="fonte-estilo-links fonte-navegacao" for="nome">Nome</label>
-                        <input type="text" name="nome" id="nome" required placeholder="Digite seu nome">
+                        <input
+                            type="text" name="nome" id="nome" maxlength="25"
+                            minlength="2" required placeholder="Digite seu nome"
+                        >
                     </div>
                     <div class="input-container conteudo-centralizado-coluna">
                         <label class="fonte-estilo-links fonte-navegacao" for="sobrenome">Sobrenome</label>
-                        <input type="text" name="sobrenome" id="sobrenome" required placeholder="Digite seu sobrenome">
+                        <input
+                            type="text" name="sobrenome" id="sobrenome" maxlength="25"
+                            minlength="2" required placeholder="Digite seu sobrenome"
+                        >
                     </div>
                 </div>
                 <div class="contatos conteudo-centralizado-linha gap-pequeno">
                     <div class="input-container conteudo-centralizado-coluna">
                         <label class="fonte-estilo-links fonte-navegacao" for="telefone" class="">Telefone</label>
-                        <input type="text" name="telefone" id="telefone" required placeholder="(00) 00000-0000">
+                        <input
+                            type="tel" name="telefone" id="telefone" maxlength="15"
+                            minlength="15" pattern="(?=.*[0-9]).{15,}"
+                            required placeholder="(00) 00000-0000"
+                        >
                     </div>
                     <div class="input-container conteudo-centralizado-coluna">
                         <label class="fonte-estilo-links fonte-navegacao" for="email">E-mail</label>
-                        <input type="email" name="email" id="email" required placeholder="SeuMelhor@email.com">
+                        <input
+                            type="email" name="email" id="email" maxlength="50"
+                            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                            required placeholder="SeuMelhor@email.com"
+                        >
                     </div>
                 </div>
                 <div class="mensagem-container">
@@ -279,7 +293,7 @@
                     </div>
                     <div class="input-container conteudo-centralizado-coluna">
                         <label for="mensagem" class="fonte-estilo-links fonte-navegacao">Mensagem</label>
-                        <textarea name="mensagem" id="mensagem" cols="30" rows="10" required placeholder="digite sua mensagem aqui"></textarea>
+                        <textarea name="mensagem" id="mensagem" cols="30" minlength="50" rows="10" required placeholder="digite sua mensagem aqui"></textarea>
                     </div>
                 </div>
                 <button class="button">
@@ -293,3 +307,9 @@
     </section>
 
 {% endblock conteudo %}
+
+{% block script %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    <script src="{% static "global/js/home.js" %}"></script>
+{% endblock script %}
