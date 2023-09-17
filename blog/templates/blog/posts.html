@@ -1,0 +1,34 @@
+{% extends "global/base.html" %}
+
+{% block style %}
+
+{% endblock style %}
+
+{% block menu_links %}
+    <li><a href="{% url 'blog:posts' %}" class="link">Home</a></li>
+    <li><a href="{% url 'portfolio:home' %}" class="link">Desenvolvedor</a></li>
+{% endblock menu_links %}
+
+{% block conteudo %}
+    <section id="posts" class="conteudo-centralizado-coluna">
+        <div class="conteudo-principal">
+            <h2 class="fonte-estilo-titulo fonte-grande-titulo cor-destaque text-centro">Papo dev</h2>
+            <p class="fonte-corpo fonte-estilo-paragrafo text-centro">Blog destinado a comunidade dev para tirar duvidas, sujestão, feedback e etc</p>
+        </div>
+        <form id="form_filtro" action="{% url 'blog:posts' %}" method="get" class="conteudo-centralizado-coluna">
+            {% include 'global/parciais/search.html' %}
+            {% include 'global/parciais/filtro_categorias.html' %}
+        </form>
+        <div class="conteiner-catoes">
+            {% if page_obj %}
+                {% for projeto in page_obj %}
+                    {% include 'blog/parciais/post_card.html' %}
+                {% endfor %}
+            {% else %}
+                <h2 class="fonte-estilo-titulo">Ops... Não encontramos projetos registrados.</h2>
+            {% endif %}
+        </div>
+    </section>
+{% endblock conteudo %}
+
+{% block script %}{% endblock script %}
