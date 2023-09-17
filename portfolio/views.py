@@ -36,6 +36,13 @@ def home(request):
         assunto = request.POST.get('assunto')
         mensagem = request.POST.get('mensagem')
 
+        if len(nome) < 2 or len(sobrenome) < 2 or\
+            not email or not telefone or not assunto or not mensagem:
+            messages.error(
+                request,
+                'Erro de formulario, por favor insira todos os dados solitados corretamente'
+            )
+
         if not User.objects.filter(email=email):
             user  = User(
                 first_name=nome,
@@ -58,8 +65,9 @@ def home(request):
             )
             trabalho.save()
             messages.success(request, 'Pedido recebido com sucesso!')
+
         else:
-            messages.error(request, 'E-mail em uso, tente novamente')
+            messages.error(request, 'Ops! email em usor, tente novamente com outro email ou entre na sua conta para realizar novos pedidos ou atualizações.')
             context.update({
                 "conteudo_form": {
                     'nome': nome,
@@ -69,7 +77,6 @@ def home(request):
                     'mensagem':mensagem,
                 }
             })
-
 
     return render(request, 'portfolio/my_page.html', context)
 
