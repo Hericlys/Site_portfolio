@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from accounts.models import User
 from utils.rands import random_letters
+from django.contrib import messages
 
 
 def home(request):
@@ -56,6 +57,19 @@ def home(request):
                 mensagem=mensagem,
             )
             trabalho.save()
+            messages.success(request, 'Pedido recebido com sucesso!')
+        else:
+            messages.error(request, 'E-mail em uso, tente novamente')
+            context.update({
+                "conteudo_form": {
+                    'nome': nome,
+                    'sobrenome': sobrenome,
+                    'telefone': telefone,
+                    'assunto': assunto,
+                    'mensagem':mensagem,
+                }
+            })
+
 
     return render(request, 'portfolio/my_page.html', context)
 

@@ -491,6 +491,40 @@ input[type='search']::-webkit-search-results-decoration {
   
 /* ========================================================================= */
 
+/* mensagem  */
+
+.message {
+    max-width: 600px;
+    margin: var(--espaco-muito-pequeno) auto;
+    padding: var(--espaco-pequeno);
+    text-align: center;
+    border-radius: 10px;
+    font-size: var(--tamanho-fonte-pequeno-navegacao);
+    font-family: var(--font-family--botoes);
+}
+
+.message.success {
+    background: rgba(0, 255, 0, 0.3);
+    border: 1px solid rgba(0, 255, 0, 90%);
+}
+
+.message.error {
+    background: rgba(255, 0, 0, 0.3);
+    border: 1px solid rgba(255, 0, 0, 90%);
+}
+
+.message.warning {
+    background: rgba(255, 255, 0, 0.3);
+    border: 1px solid rgba(255, 255, 0, 90%);
+}
+
+.message.info {
+    background: rgba(0, 0, 255, 0.3);
+    border: 1px solid rgba(0, 0, 255, 90%);
+}
+
+/* ========================================================================= */
+
 /* filtro de categorias  */
 
 .filtro-opcoes {
