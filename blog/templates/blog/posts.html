@@ -1,7 +1,9 @@
 {% extends "global/base.html" %}
+{% load static %}
+
 
 {% block style %}
-
+    <link rel="stylesheet" href="{% static "global/css/blog.css" %}">
 {% endblock style %}
 
 {% block menu_links %}
@@ -21,7 +23,7 @@
         </form>
         <div class="conteiner-catoes">
             {% if page_obj %}
-                {% for projeto in page_obj %}
+                {% for post in page_obj %}
                     {% include 'blog/parciais/post_card.html' %}
                 {% endfor %}
             {% else %}

@@ -295,7 +295,7 @@ li {
 }
 
 
-.projeto-conteiner .capa-conteiner {
+.projeto-conteiner .capa-conteiner, .card-cover {
     max-height: 200px;
     overflow: hidden;
 }

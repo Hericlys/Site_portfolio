@@ -1,0 +1,23 @@
+<div class="projeto-conteiner conteudo-centralizado-coluna width-350">
+    <div class="capa-conteiner">
+        <a href="{% url 'blog:post' post.slug %} ">
+            <img src="{{post.cover.url}}" alt="capa do projeto {{post.nome}}" class="capa width-350">
+        </a>
+    </div>
+    <div class="projeto-infos text-centro">
+        <a href="{% url 'blog:post' post.slug %}">
+            <h2 class="fonte-estilo-titulo fonte-pequeno-titulo cor-destaque margin-top-botom">{{post.title}}</h2>
+        </a>
+        <p class="fonte-navegacao fonte-pequeno-paragrafo margin-top-botom">{{post.excerpt}}</p>
+    </div>
+    <div class="projeto-botoes conteudo-centralizado-linha gap-pequeno">
+        <a href="{% url 'blog:post' post.slug %}">
+            <button class="button">
+                <span class="button_lg cor-fundo-verde">
+                    <span class="button_sl "></span>
+                    <span class="button_text">Ver mais</span>
+                </span>
+            </button>
+        </a>
+    </div>
+</div>
