@@ -61,9 +61,8 @@ class CommentAdmin(admin.ModelAdmin):
     readonly_fields = 'created_at', 'update_at', 'update_by', 'created_by',
 
     def save_model(self, request, obj, form, change):
-        if change:
-            obj.update_by = request.user
-        else:
+        if not change:
             obj.created_by = request.user
+            
         obj.save()
 

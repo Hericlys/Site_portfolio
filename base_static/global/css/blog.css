@@ -1,3 +1,20 @@
 #posts h2{
     margin: 75px 0 15px 0;
 }
+
+#post .cabecalho {
+    gap: 15px;
+}
+
+#post .cabecalho h2 {
+    font-size: 36px;
+    text-transform: capitalize;
+}
+
+#post .cabecalho p {
+    font-size: 24px;
+}
+
+#post .conteudo {
+    margin: 30px 0;
+}

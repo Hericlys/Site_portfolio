@@ -62,7 +62,7 @@ def post_views(request, slug):
         return render(request, 'blog/page_404.html', context)
 
     context = {
-        'page_title': f'post: {post.title}',
+        'page_title': f'post: {post.title}...',
         'post': post,
     }
 

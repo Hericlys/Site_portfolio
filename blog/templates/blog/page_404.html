@@ -1,0 +1,6 @@
+{% extends "global/404.html" %}
+
+{% block mensagem %}
+    <h2 class="fonte-estilo-titulo fonte-titulo">Parece que não existe um posts para esse URL</h2>
+    <a href="{% url "blog:posts" %}" class="link fonte-estilo-titulo fonte-grande-navegacao">Veja todos os posts aqui</a>
+{% endblock mensagem %}

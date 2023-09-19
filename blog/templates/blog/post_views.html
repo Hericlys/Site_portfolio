@@ -1,0 +1,43 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "global/css/blog.css" %}">
+{% endblock style %}
+
+{% block menu_links %}
+    <li><a href="{% url 'blog:posts' %}" class="link">Posts</a></li>
+    <li><a href="{% url 'portfolio:home' %}" class="link">Desenvolvedor</a></li>
+{% endblock menu_links %}
+
+{% block conteudo %}
+    <main>
+        <section id="post" class="pagina-inteira conteudo-centralizado-coluna">
+            <div class="conteudo-principal">
+                <div class="cabecalho conteudo-centralizado-coluna">
+                    {% if post.cover_in_post_content %}
+                        <img src="{{post.cover.url}}" alt="imagem ilustrativa do post {{post.title}}">
+                    {% endif %}
+                    <h2 class="fonte-estilo-titulo fonte-grande-titulo">{{post.title}}</h2>
+                    <p class="fonte-corpo fonte-navegacao">{{post.excerpt}}</p>
+                    <div class="info conteudo-centralizado-linha gap fonte-pequeno-titulo fonte-estilo-titulo">
+                        <div class="conteudo-centralizado-linha gap-micro">
+                            <i class="fa-solid fa-user-tie"></i>
+                            <p>{{post.created_by.first_name}} {{post.created_by.last_name}}</p>
+                        </div>
+                        <div class="conteudo-centralizado-linha gap-micro">
+                            <i class="fa-solid fa-calendar"></i>
+                            <p>{{post.created_at}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="conteudo">
+                    {{post.content | safe}}
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock conteudo %}
+
+{% block script %}{% endblock script %}
