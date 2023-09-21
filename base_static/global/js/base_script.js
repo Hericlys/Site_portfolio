@@ -30,3 +30,11 @@ function deletSearch() {
     search.value = ''
     submitForm()
 }
+
+// ============================================================================
+
+// mascasras de input
+
+// https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html
+
+$("#telefone").mask("(99) 99999-9999");

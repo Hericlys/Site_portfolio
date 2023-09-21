@@ -295,30 +295,6 @@
     height: 420px;
 }
 
-#contato .text-info {
-    padding: 15px;
-    border: 0.2rem solid #6c6c6c;
-    border-bottom: none;
-    background-color: #303030;
-}
-
-.input-container {
-    align-items: start;
-}
-
-.input-container label {
-    margin: 0.2rem;
-}
-
-.input-container input {
-    height: 35px;
-    padding: 5px;
-    background-color: #303030;
-    border: 0.2rem solid transparent;
-    color: white;
-    outline: none;
-}
-
 .mensagem-container {
     width: calc(100%);
     align-items: center;
@@ -336,30 +312,6 @@
     margin-top: 5px;
 }
 
-textarea, select {
-    width: calc(100%);
-    border: 0.2rem solid transparent;
-    background-color: #303030;
-    color: white;
-    padding: 5px;
-    outline: none;
-}
-
-.input-container:hover>input, .input-container:hover>textarea {
-    border-bottom: 0.2rem solid #6c6c6c;
-    border-radius: 5px 5px 0 0;
-    transition: all 0.3s ease;
-}
-
-.input-container input:focus:invalid, .input-container textarea:focus:invalid {
-    border-bottom: 0.2rem solid #D92525;
-    transition: all 0.3s ease;
-}
-
-.input-container input:valid, .input-container textarea:valid {
-    border-bottom: 0.2rem solid #27AE60;
-    transition: all 0.3s ease;
-}
 
 .contatos, .nomes {
     padding: 15px;

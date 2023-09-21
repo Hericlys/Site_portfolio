@@ -696,3 +696,76 @@ input[type='search']::-webkit-search-results-decoration {
     width: 400px;
     height: 400px;
 }
+
+/* ========================================================================= */
+
+/* forms */
+
+.form .text-info {
+    padding: 15px;
+    border: 0.2rem solid var(--cor-background-muita-luz);
+    border-bottom: none;
+    background-color: #303030;
+    width: calc(100%);
+}
+
+.form .text-info h2 {
+    margin: 10px 0;
+}
+
+.input-area {
+    padding: 15px;
+    border: 0.2rem solid var(--cor-destaque);
+    border-top: none;
+    border-bottom: none;
+}
+
+.input-container {
+    align-items: start;
+}
+
+.input-container label {
+    margin: 0.2rem;
+}
+
+.input-container input {
+    height: 35px;
+    padding: 5px;
+    background-color: #303030;
+    border: 0.2rem solid transparent;
+    color: white;
+    outline: none;
+}
+
+textarea, select {
+    width: calc(100%);
+    border: 0.2rem solid transparent;
+    background-color: #303030;
+    color: white;
+    padding: 5px;
+    outline: none;
+}
+
+.input-container:hover>input, .input-container:hover>textarea {
+    border-bottom: 0.2rem solid #6c6c6c;
+    border-radius: 5px 5px 0 0;
+    transition: all 0.3s ease;
+}
+
+.input-container input:focus:invalid, .input-container textarea:focus:invalid {
+    border-bottom: 0.2rem solid #D92525;
+    transition: all 0.3s ease;
+}
+
+.input-container input:valid, .input-container textarea:valid {
+    border-bottom: 0.2rem solid #27AE60;
+    transition: all 0.3s ease;
+}
+
+.form-button-container {
+    padding: 15px;
+    border: 0.2rem solid var(--cor-background-muita-luz);
+    border-top: none;
+    width: calc(100%);
+
+}

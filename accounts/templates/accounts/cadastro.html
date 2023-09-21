@@ -1,0 +1,95 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "global/css/blog.css" %}">
+{% endblock style %}
+
+{% block menu_links %}
+    <li><a href="{% url 'blog:posts' %}" class="link">Home</a></li>
+    <li><a href="{% url 'portfolio:home' %}" class="link">Desenvolvedor</a></li>
+    <li><a href="{% url 'portfolio:home' %}" class="link">Cadastro</a></li>
+{% endblock menu_links %}
+
+{% block conteudo %}
+    <section id="cadastro" class="pagina-inteira conteudo-centralizado-coluna">
+        <div class="conteudo-principal">
+            <form action="#contato" method="post" class="conteudo-centralizado-coluna gap-micro form">
+                {% csrf_token %}
+                {% include "global/parciais/mensagens.html" %}
+                <div class="text-info">
+                    <h2 class="text-centro fonte-estilo-titulo fonte-titulo cor-destaque">Cadastre-se</h2>
+                    <p class="text-centro fonte-estilo-paragrafo fonte-navegacao"> Crie sua conta e venha fazer parte dessa comunidade</p>
+                </div>
+                <div class="input-area conteudo-centralizado-linha gap-pequeno">
+                    <div class="input-container conteudo-centralizado-coluna">
+                        <label class="fonte-estilo-links fonte-navegacao" for="nome">Nome</label>
+                        <input
+                            type="text" name="nome" id="nome" maxlength="25"
+                            minlength="2" required placeholder="Digite seu nome"
+                            value="{{conteudo_form.nome}}"
+                        >
+                    </div>
+                    <div class="input-container conteudo-centralizado-coluna">
+                        <label class="fonte-estilo-links fonte-navegacao" for="sobrenome">Sobrenome</label>
+                        <input
+                            type="text" name="sobrenome" id="sobrenome" maxlength="25"
+                            minlength="2" required placeholder="Digite seu sobrenome"
+                            value="{{conteudo_form.sobrenome}}"
+                        >
+                    </div>
+                </div>
+                <div class="input-area conteudo-centralizado-linha gap-pequeno">
+                    <div class="input-container conteudo-centralizado-coluna">
+                        <label class="fonte-estilo-links fonte-navegacao" for="telefone" class="">Telefone</label>
+                        <input
+                            type="tel" name="telefone" id="telefone" maxlength="15"
+                            minlength="15" pattern="(?=.*[0-9]).{15,}"
+                            required placeholder="(00) 00000-0000"
+                            value="{{conteudo_form.telefone}}"
+                        >
+                    </div>
+                    <div class="input-container conteudo-centralizado-coluna">
+                        <label class="fonte-estilo-links fonte-navegacao" for="email">E-mail</label>
+                        <input
+                            type="email" name="email" id="email" maxlength="50"
+                            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                            required placeholder="SeuMelhor@email.com"
+                            value="{{conteudo_form.email}}"
+                        >
+                    </div>
+                </div>
+                <div class="input-area conteudo-centralizado-linha gap-pequeno">
+                    <div class="input-container conteudo-centralizado-coluna">
+                        <label class="fonte-estilo-links fonte-navegacao" for="senha" class="">Senha</label>
+                        <input
+                            type="password" name="senha" id="senha"
+                            minlength="8"
+                            required placeholder="Uma senha forte"
+                        >
+                    </div>
+                    <div class="input-container conteudo-centralizado-coluna">
+                        <label class="fonte-estilo-links fonte-navegacao" for="senha2" class="">Confirmação de senha</label>
+                        <input
+                            type="password" name="senha2" id="senha2"
+                            minlength="8"
+                            required placeholder="Repita sua senha"
+                        >
+                    </div>
+
+                </div>
+                <div class="form-button-container conteudo-centralizado-linha">
+                    <button class="button">
+                        <span class="button_lg cor-fundo-verde">
+                            <span class="button_sl "></span>
+                            <span class="button_text">Enviar</span>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock conteudo %}
+
+{% block script %}{% endblock script %}
