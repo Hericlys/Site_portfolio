@@ -22,6 +22,16 @@
             <nav>
                 <ul class="menu-links conteudo-centralizado-linha fonte-estilo-links fonte-pequeno-navegacao">
                     {% block menu_links %}{% endblock menu_links %}
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'accounts:logoff' %}" class="link">Sair</a></li>
+                    {% else %}
+                        {% if not "accounts/login" in request.path %}
+                            <li><a href="{% url 'accounts:login' %}" class="link">Entrar</a></li>
+                        {% endif %}
+                        {% if not "accounts/create/" in request.path %}
+                            <li><a href="{% url 'accounts:create' %}" class="link">Cadastre-se</a></li>
+                        {% endif %}
+                    {% endif %}
                 </ul>
             </nav>
         </div>

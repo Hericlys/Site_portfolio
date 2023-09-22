@@ -3,24 +3,35 @@
 
 
 {% block style %}
-    <link rel="stylesheet" href="{% static "global/css/blog.css" %}">
+    <link rel="stylesheet" href="{% static "global/css/accounts.css" %}">
 {% endblock style %}
 
 {% block menu_links %}
     <li><a href="{% url 'blog:posts' %}" class="link">Home</a></li>
     <li><a href="{% url 'portfolio:home' %}" class="link">Desenvolvedor</a></li>
-    <li><a href="{% url 'portfolio:home' %}" class="link">Cadastro</a></li>
+    <li><a href="{% url 'accounts:login' %}" class="link">Entrar</a></li>
 {% endblock menu_links %}
 
 {% block conteudo %}
     <section id="cadastro" class="pagina-inteira conteudo-centralizado-coluna">
         <div class="conteudo-principal">
-            <form action="#contato" method="post" class="conteudo-centralizado-coluna gap-micro form">
+            {% include "global/parciais/mensagens.html" %}
+            <form action="{% url "accounts:create" %}" method="post" class="conteudo-centralizado-coluna gap-micro form">
                 {% csrf_token %}
-                {% include "global/parciais/mensagens.html" %}
                 <div class="text-info">
                     <h2 class="text-centro fonte-estilo-titulo fonte-titulo cor-destaque">Cadastre-se</h2>
                     <p class="text-centro fonte-estilo-paragrafo fonte-navegacao"> Crie sua conta e venha fazer parte dessa comunidade</p>
+                </div>
+
+                <div class="username input-area conteudo-centralizado-linha gap-pequeno">
+                    <div class="input-container conteudo-centralizado-coluna">
+                        <label class="fonte-estilo-links fonte-navegacao" for="username">Nome de usuario</label>
+                        <input
+                            type="text" name="username" id="username" maxlength="25"
+                            minlength="6" required placeholder="Digite su nome de ususario"
+                            value="{{conteudo_form.username}}"
+                        >
+                    </div>
                 </div>
                 <div class="input-area conteudo-centralizado-linha gap-pequeno">
                     <div class="input-container conteudo-centralizado-coluna">
@@ -28,7 +39,7 @@
                         <input
                             type="text" name="nome" id="nome" maxlength="25"
                             minlength="2" required placeholder="Digite seu nome"
-                            value="{{conteudo_form.nome}}"
+                            value="{{conteudo_form.first_name}}"
                         >
                     </div>
                     <div class="input-container conteudo-centralizado-coluna">
@@ -36,7 +47,7 @@
                         <input
                             type="text" name="sobrenome" id="sobrenome" maxlength="25"
                             minlength="2" required placeholder="Digite seu sobrenome"
-                            value="{{conteudo_form.sobrenome}}"
+                            value="{{conteudo_form.last_name}}"
                         >
                     </div>
                 </div>
@@ -87,6 +98,10 @@
                         </span>
                     </button>
                 </div>
+                <div class="">
+                    <p class="fonte-estilo-titulo fonte-pequeno-navegacao">Já tem uma conta? <a href="{% url "accounts:login" %}" class="link">Clique aqui</a></p>
+                </div>
+
             </form>
         </div>
     </section>

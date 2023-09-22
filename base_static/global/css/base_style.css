@@ -349,6 +349,10 @@ header {
     gap: 25px;
 }
 
+.menu-links li {
+    text-transform: capitalize;
+}
+
 .link:hover {
     color: var(--cor-destaque);
     transition: all 0.5s ease-in-out;
@@ -718,6 +722,7 @@ input[type='search']::-webkit-search-results-decoration {
     border: 0.2rem solid var(--cor-destaque);
     border-top: none;
     border-bottom: none;
+    width: calc(100%);
 }
 
 .input-container {

@@ -1,0 +1,70 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "global/css/accounts.css" %}">
+{% endblock style %}
+
+{% block menu_links %}
+    <li><a href="{% url 'blog:posts' %}" class="link">blog</a></li>
+    <li><a href="{% url 'portfolio:home' %}" class="link">Desenvolvedor</a></li>
+{% endblock menu_links %}
+
+{% block conteudo %}
+    <section id="section-login" class="pagina-inteira conteudo-centralizado-coluna">
+        <div class="conteudo-principal">
+
+            {% if user.is_authenticated %}
+                <div class="mensagem-login">
+                    <p class="fonte-estilo-titulo fonte-titulo">Olá {{user.first_name | title }} {{user.last_name | title}}, Você já está logado.</p>
+                    <a href="#" class="fonte-estilo-titulo fonte-pequeno-titulo link">clique aqui para ir para seu perfil</a>
+                </div>
+            {% else %}
+                {% include "global/parciais/mensagens.html" %}
+                <form action="{% url "accounts:login" %}" method="post" class="conteudo-centralizado-coluna gap-micro form">
+                    {% csrf_token %}
+                    <div class="text-info">
+                        <h2 class="text-centro fonte-estilo-titulo fonte-titulo cor-destaque">Login</h2>
+                    </div>
+                    <div class="input-area conteudo-centralizado-linha gap-pequeno">
+                        <div class="input-container conteudo-centralizado-coluna">
+                            <label class="fonte-estilo-links fonte-navegacao" for="email">E-mail</label>
+                            <input
+                                type="email" name="email" id="email" maxlength="50"
+                                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                                required placeholder="SeuMelhor@email.com"
+                                value="{{conteudo_form.email}}"
+                            >
+                        </div>
+                    </div>
+                    <div class="input-area conteudo-centralizado-linha gap-pequeno">
+                        <div class="input-container conteudo-centralizado-coluna">
+                            <label class="fonte-estilo-links fonte-navegacao" for="senha" class="">Senha</label>
+                            <input
+                                type="password" name="senha" id="senha"
+                                minlength="8"
+                                required placeholder="digite sua senha"
+                                
+                            >
+                        </div>
+                    </div>
+                    <div class="form-button-container conteudo-centralizado-linha">
+                        <button class="button">
+                            <span class="button_lg cor-fundo-verde">
+                                <span class="button_sl "></span>
+                                <span class="button_text">Entrar</span>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="conteudo-centralizado-coluna">
+                        <p class="fonte-estilo-titulo fonte-pequeno-navegacao">Ainda não tem uma conta? <a href="{% url "accounts:login" %}" class="link">Clique aqui</a></p>
+                        <p class="fonte-estilo-titulo fonte-pequeno-navegacao">Esqueceu a senha? <a href="{% url "accounts:login" %}" class="link">Clique aqui</a></p>
+                    </div>
+                </form>
+            {% endif %}
+        </div>
+    </section>
+{% endblock conteudo %}
+
+{% block script %}{% endblock script %}

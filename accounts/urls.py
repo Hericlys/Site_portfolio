@@ -4,5 +4,8 @@ from accounts.views import *
 app_name = 'accounts'
 
 urlpatterns = [
-    path('criar/', create, name="criar"),
+    path('create/', create, name="create"),
+    path('login/', login, name="login"),
+    path('update/<int:pk>/', update, name="update"),
+    path('logoff/', logoff, name="logoff"),
 ]
