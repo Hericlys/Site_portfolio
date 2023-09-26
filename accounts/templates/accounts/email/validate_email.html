@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;700&family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .main-content {
+            background-color: #1E1E1E;
+            color: #F2EEEB;
+        }
+
+        span {
+            color: #D92525;
+        }
+        
+        h1 {
+            margin: 10px 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        p {
+            font-family: 'Nunito', sans-serif;
+            margin: 10px 0;
+        }
+
+        a {
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+        }
+
+        a:hover {
+            transition: all 0.3s ease-in-out;
+            color: #D92525;
+        }
+
+        .ignore {
+            color: tomato;
+        }
+        
+    </style>
+</head>
+<body>
+    <section class="main-content">
+        <h1><span>H</span>ericlys <span>D</span>ev</h1>
+        <p>Prezado(a) {{user.first_name}} {{user.last_name}},</p>
+        <p>É com grande satisfação que damos as boas-vindas à comunidade do Papo dev! Estamos empolgados em tê-lo(a) como parte da nossa plataforma.</p>
+        <p>Para concluir o processo de cadastro e garantir que você tenha acesso completo aos nossos conteúdos exclusivos, é necessário confirmar o seu endereço de email. Clique no link abaixo para ativar a sua conta:</p>
+        <a href="http://127.0.0.1:8000/accounts/login/">{{code}}</a>
+        <p class="ignore">Se você não reconheceu esta inscrição ou não solicitou a ativação da conta, por favor, ignore este email.</p>
+        <p>Estamos aqui para ajudar! Se tiver alguma dúvida ou precisar de assistência, não hesite em entrar em contato conosco através do email contato.hericlysdev@gmamil.com</p>
+        <p>Obrigado por escolher Papo dev como sua fonte de informações e entretenimento. Esperamos que você desfrute da sua experiência em nosso blog.</p>
+        <p>Atenciosamente,<br> Hericlys de Sá.</p>
+    </section>
+</body>
+</html>

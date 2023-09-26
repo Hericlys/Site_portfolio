@@ -3,7 +3,11 @@ from accounts.models import User
 from django.core.validators import validate_email
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages, auth
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.conf import settings
+from utils.rands import random_letters
 
 
 def login(request):
@@ -86,6 +90,19 @@ def create(request):
         try:
             User.objects.get(telefone=telefone)
             messages.error(request, 'Numero de telefone em uso, faça login em sua conta')
+            context.update(
+                {'telefone': ''}
+            )
+            return render(request, 'accounts\cadastro.html', context)
+        except:
+            pass
+
+        try:
+            User.objects.get(username=username)
+            messages.error(request, 'Nome de usuario em uso, faça login em sua conta')
+            context.update ({
+                'username': ''
+            })
             return render(request, 'accounts\cadastro.html', context)
         except:
             pass
@@ -102,9 +119,19 @@ def create(request):
             password=senha,
             telefone=telefone,
         )
+
         new_user.save()
+
         messages.success(request, 'Perfil criado com sucesso! agora faça login')
-        send_mail('Assunto', 'esse é o email teste', 'hericlysdesa@gmail.com', ['contato.hericlysdev@gmail.com',])
+        html_content = render_to_string(r'accounts\email\validate_email.html', {
+            'user': new_user,
+            'code': random_letters(6)
+        })
+        text_content = strip_tags(html_content)
+        email = EmailMultiAlternatives('Validação de E-mail', text_content, settings.DEFAULT_FROM_EMAIL, [new_user.email,])
+        email.attach_alternative(html_content, 'text/html')
+        email.send()
+
         return redirect('accounts:login')
 
     return render(request, 'accounts\cadastro.html', context)
