@@ -3,6 +3,7 @@ from accounts.models import User
 from django.core.validators import validate_email
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages, auth
+from django.core.mail import send_mail
 
 
 def login(request):
@@ -90,9 +91,6 @@ def create(request):
             pass
 
         if senha != senha2:
-            print("====================================================")
-            print(senha)
-            print(senha2)
             messages.error(request, 'As senhas não conferem, tente novamente.')
             return render(request, 'accounts\cadastro.html', context)
 
@@ -106,6 +104,7 @@ def create(request):
         )
         new_user.save()
         messages.success(request, 'Perfil criado com sucesso! agora faça login')
+        send_mail('Assunto', 'esse é o email teste', 'hericlysdesa@gmail.com', ['contato.hericlysdev@gmail.com',])
         return redirect('accounts:login')
 
     return render(request, 'accounts\cadastro.html', context)
