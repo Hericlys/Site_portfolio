@@ -13,4 +13,5 @@ class UserAdmin(admin.ModelAdmin):
     list_editable = 'is_active',
     list_per_page = 10
     list_filter = 'username', 'first_name', 'last_name', 'email'
+    readonly_fields = 'activation_token',
 

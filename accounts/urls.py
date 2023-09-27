@@ -7,5 +7,6 @@ urlpatterns = [
     path('create/', create, name="create"),
     path('login/', login, name="login"),
     path('update/<int:pk>/', update, name="update"),
-    path('logoff/', logoff, name="logoff"),
+    path('logout/', logout, name="logout"),
+    path('validated_email/<slug:activation_token>', validated_email, name="validated_email"),
 ]

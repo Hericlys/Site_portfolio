@@ -8,6 +8,7 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
 from utils.rands import random_letters
+from secrets import token_urlsafe
 
 
 def login(request):
@@ -34,9 +35,12 @@ def login(request):
             if not user:
                 messages.error(request, 'E-mail ou senha invalido')
             else:
-                auth.login(request, user)
-                messages.add_message(request, messages.SUCCESS, f'Bem vindo! {user.first_name} { user.last_name }')
-                return redirect('portfolio:home')
+                if user.validated_email:
+                    auth.login(request, user)
+                    messages.add_message(request, messages.SUCCESS, f'Bem vindo! {user.first_name} { user.last_name }')
+                    return redirect('portfolio:home')
+                else:
+                    messages.error(request, 'Ative sua conta para fazer login')
         except:
             messages.error(
                 request,
@@ -46,7 +50,7 @@ def login(request):
 
 
 @login_required(redirect_field_name='accounts:login')
-def logoff(request):
+def logout(request):
     auth.logout(request)
     return redirect('accounts:login')
 
@@ -116,16 +120,16 @@ def create(request):
             first_name=first_name,
             last_name=last_name,
             email=email,
-            password=senha,
             telefone=telefone,
         )
+        new_user.set_password(senha)
 
         new_user.save()
 
         messages.success(request, 'Perfil criado com sucesso! agora faça login')
         html_content = render_to_string(r'accounts\email\validate_email.html', {
             'user': new_user,
-            'code': random_letters(6)
+            'code': f"http://127.0.0.1:8000/accounts/validated_email/{new_user.activation_token}"
         })
         text_content = strip_tags(html_content)
         email = EmailMultiAlternatives('Validação de E-mail', text_content, settings.DEFAULT_FROM_EMAIL, [new_user.email,])
@@ -140,3 +144,15 @@ def create(request):
 @login_required(redirect_field_name='accounts:login')
 def update(request):
     return render(request, r'accounts\update.html')
+
+
+def validated_email(request, activation_token):
+    user = User.objects.get(activation_token=activation_token)
+    if not user.validated_email:
+        user.validated_email = True
+        user.save()
+        messages.success(request, f'E-mail validado com sucesso! Agora faça login')
+        return redirect('accounts:login')
+    else:
+        return redirect('portfolio:home')
+        
