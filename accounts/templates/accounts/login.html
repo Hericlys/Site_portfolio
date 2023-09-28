@@ -59,7 +59,7 @@
                     </div>
                     <div class="conteudo-centralizado-coluna">
                         <p class="fonte-estilo-titulo fonte-pequeno-navegacao">Ainda não tem uma conta? <a href="{% url "accounts:login" %}" class="link">Clique aqui</a></p>
-                        <p class="fonte-estilo-titulo fonte-pequeno-navegacao">Esqueceu a senha? <a href="{% url "accounts:login" %}" class="link">Clique aqui</a></p>
+                        <p class="fonte-estilo-titulo fonte-pequeno-navegacao">Esqueceu a senha? <a href="{% url "accounts:password_recovery_request" %}" class="link">Clique aqui</a></p>
                     </div>
                 </form>
             {% endif %}

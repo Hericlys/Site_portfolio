@@ -129,7 +129,7 @@ def create(request):
         messages.success(request, 'Perfil criado com sucesso! agora faça login')
         html_content = render_to_string(r'accounts\email\validate_email.html', {
             'user': new_user,
-            'code': f"http://127.0.0.1:8000/accounts/validated_email/{new_user.activation_token}"
+            'code': f"http://127.0.0.1:8000/accounts/validated_email/{new_user.authentication_token}"
         })
         text_content = strip_tags(html_content)
         email = EmailMultiAlternatives('Validação de E-mail', text_content, settings.DEFAULT_FROM_EMAIL, [new_user.email,])
@@ -146,8 +146,8 @@ def update(request):
     return render(request, r'accounts\update.html')
 
 
-def validated_email(request, activation_token):
-    user = User.objects.get(activation_token=activation_token)
+def validated_email(request, authentication_token):
+    user = User.objects.get(authentication_token=authentication_token)
     if not user.validated_email:
         user.validated_email = True
         user.save()
@@ -155,4 +155,31 @@ def validated_email(request, activation_token):
         return redirect('accounts:login')
     else:
         return redirect('portfolio:home')
-        
+
+
+def password_recovery_request(request):
+    context = {}
+
+    if request.method == "POST":
+        email = request.POST.get('email')
+        context = {
+            'conteudo_form': {
+                'email': email,
+            }
+        }
+
+        try:
+            user = User.objects.get(email=email)
+            html_content = render_to_string(r'accounts\email\validate_email.html', {
+                'code': f"http://127.0.0.1:8000/accounts/validated_email/{user.authentication_token}"
+            })
+            text_content = strip_tags(html_content)
+            email = EmailMultiAlternatives('Validação de E-mail', text_content, settings.DEFAULT_FROM_EMAIL, [user.email,])
+            email.attach_alternative(html_content, 'text/html')
+            email.send()
+            messages.success(request, 'Email enviado com sucesso!')
+        except:
+            messages.error(request, 'Não existe um conta vinculada a esse E-mail')
+
+
+    return render(request, 'accounts\password_recovery_request.html', context)
