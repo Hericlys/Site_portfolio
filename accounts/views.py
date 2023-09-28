@@ -10,7 +10,7 @@ from django.conf import settings
 from utils.rands import random_letters
 from secrets import token_urlsafe
 
-
+# auth
 def login(request):
     context = {
         'page_title': 'Entrar'
@@ -55,6 +55,85 @@ def logout(request):
     return redirect('accounts:login')
 
 
+def validated_email(request, authentication_token):
+
+    user = User.objects.get(authentication_token=authentication_token)
+    if not user.validated_email:
+        user.validated_email = True
+        user.save()
+        messages.success(request, f'E-mail validado com sucesso! Agora faça login')
+        return redirect('accounts:login')
+    else:
+        return redirect('portfolio:home')
+
+
+def password_recovery_request(request):
+    context = {
+        'page_title': 'Recuperação de senha',
+    }
+
+    if request.method == "POST":
+        email = request.POST.get('email')
+
+        context = {
+            'conteudo_form': {
+                'email': email,
+            }
+        }
+
+        try:
+            user = User.objects.get(email=email)
+
+            user.authentication_token= str(token_urlsafe())
+            user.save()
+
+            html_content = render_to_string(r'accounts\email\password_recovery.html', {
+                'code': f"http://127.0.0.1:8000/accounts/password_recovery/{user.authentication_token}"
+            })
+            text_content = strip_tags(html_content)
+            email = EmailMultiAlternatives('Validação de E-mail', text_content, settings.DEFAULT_FROM_EMAIL, [user.email,])
+            email.attach_alternative(html_content, 'text/html')
+            email.send()
+            messages.success(request, 'Solicitação enviada com sucesso! Verifique seu E-mail')
+        except:
+            messages.error(request, 'Não existe um conta vinculada a esse E-mail')
+
+
+    return render(request, 'accounts\password_recovery_request.html', context)
+
+
+def password_recovery(request, authentication_token):
+    try:
+        user = User.objects.get(authentication_token=authentication_token)
+
+        context = {
+            'page_title': 'Redefinição de senha',
+            'authentication_token': authentication_token,
+        }
+
+        if request.method == "POST":
+            senha = request.POST.get('senha')
+            senha2 = request.POST.get('senha2')
+            if senha != senha2:
+                messages.error(request, 'A confirmação de senha falhou, tente novamente.')
+            else:
+                user.set_password(senha)
+                user.authentication_token= str(token_urlsafe())
+                user.save()
+                messages.success(request, 'senha alterada com sucesso! Agora faça login.')
+                return redirect('accounts:login')
+
+        return render(request, "accounts\password_recovery.html", context)
+
+    except:
+        context = {
+            'page_title': 'Page 404'
+        }
+        return render(request, 'accounts/page_404.html', context)
+
+
+
+# CRUD
 def create(request):
     context = {
         'page_title': 'Cadastro'
@@ -144,42 +223,3 @@ def create(request):
 @login_required(redirect_field_name='accounts:login')
 def update(request):
     return render(request, r'accounts\update.html')
-
-
-def validated_email(request, authentication_token):
-    user = User.objects.get(authentication_token=authentication_token)
-    if not user.validated_email:
-        user.validated_email = True
-        user.save()
-        messages.success(request, f'E-mail validado com sucesso! Agora faça login')
-        return redirect('accounts:login')
-    else:
-        return redirect('portfolio:home')
-
-
-def password_recovery_request(request):
-    context = {}
-
-    if request.method == "POST":
-        email = request.POST.get('email')
-        context = {
-            'conteudo_form': {
-                'email': email,
-            }
-        }
-
-        try:
-            user = User.objects.get(email=email)
-            html_content = render_to_string(r'accounts\email\validate_email.html', {
-                'code': f"http://127.0.0.1:8000/accounts/validated_email/{user.authentication_token}"
-            })
-            text_content = strip_tags(html_content)
-            email = EmailMultiAlternatives('Validação de E-mail', text_content, settings.DEFAULT_FROM_EMAIL, [user.email,])
-            email.attach_alternative(html_content, 'text/html')
-            email.send()
-            messages.success(request, 'Email enviado com sucesso!')
-        except:
-            messages.error(request, 'Não existe um conta vinculada a esse E-mail')
-
-
-    return render(request, 'accounts\password_recovery_request.html', context)

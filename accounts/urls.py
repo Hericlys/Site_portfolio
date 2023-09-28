@@ -16,12 +16,17 @@ urlpatterns = [
         validated_email,
         name="validated_email"
     ),
-
-    # password
     path(
         'password_recovery_request/',
         password_recovery_request,
         name='password_recovery_request'
-    )
+    ),
+    path(
+        'password_recovery/<slug:authentication_token>',
+        password_recovery,
+        name="password_recovery"
+    ),
+
+
 
 ]

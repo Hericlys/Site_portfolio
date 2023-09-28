@@ -1,0 +1,6 @@
+{% extends "global/404.html" %}
+
+{% block mensagem %}
+    <h2 class="fonte-estilo-titulo fonte-titulo">Nada localizado nessa URL...</h2>
+    <a href="{% url "accounts:login" %}" class="link fonte-estilo-titulo fonte-grande-navegacao">Volte para fazer login</a>
+{% endblock mensagem %}
