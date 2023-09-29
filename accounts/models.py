@@ -9,3 +9,14 @@ class User(AbstractUser):
     authentication_token = models.SlugField(
         default=str(token_urlsafe()).replace(' ', '-'),
     )
+    image_profile = models.ImageField(
+        upload_to='profile/user/%Y/%m',
+        blank=True,
+        null=True,
+    )
+    image_profile_cover = models.ImageField(
+        upload_to='profile/cover/%Y/%m',
+        blank=True,
+        null=True,
+    )
+
