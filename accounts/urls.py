@@ -7,6 +7,7 @@ urlpatterns = [
     # CRUD
     path('create/', create, name="create"),
     path('update/<int:pk>/', update, name="update"),
+    path('profile/', profile, name='profile'),
 
     # Auth
     path('login/', login, name="login"),

@@ -1,0 +1,22 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "global/css/accounts.css" %}">
+{% endblock style %}
+
+{% block menu_links %}
+    <li><a href="{% url 'blog:posts' %}" class="link">blog</a></li>
+    <li><a href="{% url 'portfolio:home' %}" class="link">Desenvolvedor</a></li>
+{% endblock menu_links %}
+
+{% block conteudo %}
+    <section id="section-login" class="pagina-inteira conteudo-centralizado-coluna">
+        <div class="conteudo-principal">
+            <p>Pefil do {{user.username}}</p>
+        </div>
+    </section>
+{% endblock conteudo %}
+
+{% block script %}{% endblock script %}

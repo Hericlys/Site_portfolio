@@ -38,7 +38,7 @@ def login(request):
                 if user.validated_email:
                     auth.login(request, user)
                     messages.add_message(request, messages.SUCCESS, f'Bem vindo! {user.first_name} { user.last_name }')
-                    return redirect('portfolio:home')
+                    return redirect('accounts:profile')
                 else:
                     messages.error(request, 'Ative sua conta para fazer login')
         except:
@@ -49,7 +49,7 @@ def login(request):
     return render(request, 'accounts\login.html', context)
 
 
-@login_required(redirect_field_name='accounts:login')
+@login_required()
 def logout(request):
     auth.logout(request)
     return redirect('accounts:login')
@@ -130,7 +130,6 @@ def password_recovery(request, authentication_token):
             'page_title': 'Page 404'
         }
         return render(request, 'accounts/page_404.html', context)
-
 
 
 # CRUD
@@ -220,6 +219,18 @@ def create(request):
     return render(request, 'accounts\cadastro.html', context)
 
 
-@login_required(redirect_field_name='accounts:login')
+@login_required()
 def update(request):
+    context = {
+        'page_title': 'atualização de perfil',
+    }
     return render(request, r'accounts\update.html')
+
+
+@login_required()
+def profile(request):
+    context = {
+        'page_title': f'Meu perfil',
+    }
+
+    return render(request, r'accounts\profile.html', context)
