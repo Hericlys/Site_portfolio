@@ -13,3 +13,28 @@
 .mensagem-login {
     text-align: center;
 }
+
+/* profile */
+
+#profile .container-info {
+    gap: 150px;
+    border-bottom: 2px solid #303030;
+    padding: 15px;
+}
+
+#profile .container-info .area-1 .img-container {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    background-color: #303030;
+}
+
+#profile .container-info .area-1 .img-container img{
+    border-radius: 50%;
+}
+
+#profile .container-info .area-1 .img-container i {
+    font-size: 50px;
+    margin-top: 30%;
+}

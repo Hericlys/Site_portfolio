@@ -12,9 +12,54 @@
 {% endblock menu_links %}
 
 {% block conteudo %}
-    <section id="section-login" class="pagina-inteira conteudo-centralizado-coluna">
+    <section id="profile" class="pagina-inteira conteudo-centralizado-coluna">
         <div class="conteudo-principal">
-            <p>Pefil do {{user.username}}</p>
+            <div class="container-info conteudo-centralizado-linha">
+                <div class="area-1 conteudo-centralizado-linha gap">
+                    <div class="img-container">
+                        {% if user.image_profile %}
+                            <img src="{{user.image_profile.url}}" alt="imagem de perfil">
+                        {% else %}
+                            <i class="fa-solid fa-user"></i>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <h2 class="fonte-estilo-titulo fonte-grande-titulo">{{user.username}}</h2>
+                        <p class="fonte-estilo-titulo fonte-grande-navegacao">{{user.first_name}} {{user.last_name}}</p>
+                        <p class="fonte-estilo-titulo fonte-grande-navegacao">Meus posts: <span class="cor-destaque">{{posts.count}}</span></p>
+                    </div>
+                </div>
+                <div class="area-3">
+                    <div class="button-container conteudo-centralizado-coluna">
+                        <a href="#">
+                            <button class="button">
+                                <span class="button_lg cor-fundo-laranja">
+                                    <span class="button_sl "></span>
+                                    <span class="button_text">Editar conta</span>
+                                </span>
+                            </button>
+                        </a>
+                        </a>
+                        <a href="#">
+                            <button class="button">
+                                <span class="button_lg cor-fundo-verde">
+                                    <span class="button_sl "></span>
+                                    <span class="button_text">Novo post</span>
+                                </span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="my_posts conteiner-catoes">
+                {% if posts %}
+                    {% for post in posts %}
+                        {% include 'blog/parciais/post_card.html' %}
+                    {% endfor %}
+                {% else %}
+                    <h2 class="fonte-estilo-titulo">Ops... Não encontramos projetos registrados.</h2>
+                {% endif %}
+            </div>
         </div>
     </section>
 {% endblock conteudo %}

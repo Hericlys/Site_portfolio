@@ -15,3 +15,16 @@ class User(AbstractUser):
         null=True,
     )
 
+    def save(self, *args, **kwargs):
+
+        current_profile_name = str(self.image_profile.name)
+        super().save(*args, **kwargs)
+        profile_changed = False
+
+        if self.image_profile:
+            profile_changed = current_profile_name != self.image_profile.name
+
+        if profile_changed:
+            resize_image(self.image_profile, 900)
+
+        return super().save(*args, **kwargs)

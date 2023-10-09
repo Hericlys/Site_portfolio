@@ -9,6 +9,7 @@ from django.utils.html import strip_tags
 from django.conf import settings
 from utils.rands import random_letters
 from secrets import token_urlsafe
+from blog.models import Post
 
 # auth
 def login(request):
@@ -229,7 +230,10 @@ def update(request):
 
 @login_required()
 def profile(request):
+    user = request.user
+    posts = Post.objects.filter(created_by=user.id)
     context = {
+        'posts': posts,
         'page_title': f'Meu perfil',
     }
 
