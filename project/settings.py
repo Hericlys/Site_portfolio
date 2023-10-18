@@ -36,6 +36,7 @@ INSTALLED_APPS += [
     'portfolio',
     'blog',
     'site_setup',
+    'pages',
 
 ]
 

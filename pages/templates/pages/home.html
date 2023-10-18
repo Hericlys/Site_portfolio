@@ -7,11 +7,11 @@
 
 {% block menu_links %}
 
-    <li><a href="{% url 'portfolio:home' %}#home" class="link">Home</a></li>
-    <li><a href="{% url 'portfolio:home' %}#sobre" class="link">Sobre</a></li>
-    <li><a href="{% url 'portfolio:home' %}#servicos" class="link">Serviços</a></li>
-    <li><a href="{% url 'portfolio:home' %}#projetos" class="link">Projetos</a></li>
-    <li><a href="{% url 'portfolio:home' %}#contato" class="link">Contato</a></li>
+    <li><a href="{% url 'pages:home' %}#home" class="link">Home</a></li>
+    <li><a href="{% url 'pages:home' %}#sobre" class="link">Sobre</a></li>
+    <li><a href="{% url 'pages:home' %}#servicos" class="link">Serviços</a></li>
+    <li><a href="{% url 'pages:home' %}#projetos" class="link">Projetos</a></li>
+    <li><a href="{% url 'pages:home' %}#contato" class="link">Contato</a></li>
     <li><a href="{% url 'blog:posts' %}" class="link">Blog</a></li>
 
 {% endblock menu_links %}
@@ -217,9 +217,6 @@
                 <h2 class="fonte-estilo-titulo fonte-grande-titulo cor-destaque">Meus Proejtos</h2>
                 <p class="fonte-corpo fonte-estilo-paragrafo">Explore projetos incriveis feito por mim, descubra como foram feitos e cada tomada de decisão por trás de cada linha de codigo.</p>
             </div>
-            <form id="form_filtro" action="{% url 'portfolio:home' %}#projetos" method="get">
-                {% include 'global/parciais/filtro_categorias.html' %}
-            </form>
             <div class="conteiner-catoes">
                 {% if projetos %}
                     {% for projeto in projetos %}

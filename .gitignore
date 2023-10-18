@@ -5,6 +5,7 @@ site_setup/migrations/
 accounts/migrations/
 blog/migrations/
 portfolio/migrations/
+pages/migrations/
 
 
 # Byte-compiled / optimized / DLL files
