@@ -20,7 +20,6 @@ ALLOWED_HOSTS = []
 AUTH_USER_MODEL = 'accounts.User'
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -30,13 +29,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+# My APPs
 INSTALLED_APPS += [
     'accounts',
     'attachment',
     'portfolio',
     'blog',
+    'site_setup',
+
+]
+
+# third-party apps
+INSTALLED_APPS += [
     'django_summernote',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -61,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'site_setup.context_processors.site_setup',
             ],
         },
     },
@@ -144,7 +152,7 @@ SUMMERNOTE_CONFIG = {
 
 # Email
 
-if not DEBUG:
+if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
