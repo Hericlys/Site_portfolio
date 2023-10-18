@@ -218,8 +218,8 @@
                 <p class="fonte-corpo fonte-estilo-paragrafo">Explore projetos incriveis feito por mim, descubra como foram feitos e cada tomada de decisão por trás de cada linha de codigo.</p>
             </div>
             <div class="conteiner-catoes">
-                {% if projetos %}
-                    {% for projeto in projetos %}
+                {% if projects %}
+                    {% for projeto in projects %}
                         {% include 'portfolio/parciais/cartao_projeto.html' %}
                     {% endfor %}
                 {% else %}

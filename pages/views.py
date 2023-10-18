@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from pages.descriptions import home_description
-from portfolio.models import Projeto
+from portfolio.models import Projeto, Assunto
 
 
 def home(request):
     projects = Projeto.objects.all().order_by('-id',)[:3]
+    assuntos = Assunto.objects.all()
 
     context = {
         'page_settings': {
@@ -16,6 +17,7 @@ def home(request):
             
         },
         'projects': projects,
+        'assuntos': assuntos,
     }
 
     if request.method == 'POST':
