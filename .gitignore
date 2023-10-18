@@ -1,9 +1,10 @@
 # migrations
 
+media/
+site_setup/migrations/
 accounts/migrations/
 blog/migrations/
 portfolio/migrations/
-
 
 
 # Byte-compiled / optimized / DLL files
