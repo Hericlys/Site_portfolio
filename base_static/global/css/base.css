@@ -345,6 +345,10 @@ header {
     justify-content: space-between;
 }
 
+.menu .logo img{
+    max-height: 35px;
+}
+
 .menu-links {
     gap: 25px;
 }
@@ -357,6 +361,8 @@ header {
     color: var(--cor-destaque);
     transition: all 0.5s ease-in-out;
 }
+
+
 
 /* ========================================================================= */
 
