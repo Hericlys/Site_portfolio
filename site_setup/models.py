@@ -53,5 +53,5 @@ class SiteSetup(models.Model):
             resize_image(self.logo, 150)
 
     def __str__(self):
-        return self.site_name
+        return self.name
     
